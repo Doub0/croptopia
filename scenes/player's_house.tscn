@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c40il5g3ujoau"]
+
+[ext_resource type="Texture2D" uid="uid://durxjstrx47um" path="res://inventory/pixil-frame-0 - 2024-02-24T173824.141.png" id="1_a0aif"]
+
+[node name="player\'s house" type="Sprite2D"]
+texture = ExtResource("1_a0aif")

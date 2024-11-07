@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8d7nrg1ec62q"]
+
+[ext_resource type="Texture2D" uid="uid://dqyfkmxnk3ll" path="res://sr22613533febaws3.png" id="1_p7hfm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqqf1"]
+
+[node name="roadblock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_p7hfm")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_fqqf1")

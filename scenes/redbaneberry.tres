@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dwjpo1ght8vfs"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_ewjbm"]
+[ext_resource type="Texture2D" uid="uid://c7ujwc2of3wuv" path="res://pixil-frame-0 - 2024-01-16T123135.698.png" id="2_0u0l3"]
+
+[resource]
+resource_name = "redbaneberry"
+script = ExtResource("1_ewjbm")
+name = "redbaneberry"
+texture = ExtResource("2_0u0l3")

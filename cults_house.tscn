@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ry5jswpgptp"]
+
+[ext_resource type="Texture2D" uid="uid://cxcq7x6ggs7js" path="res://pixil-frame-0 - 2024-02-18T203001.701.png" id="1_t44ag"]
+
+[node name="cults_house" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_t44ag")

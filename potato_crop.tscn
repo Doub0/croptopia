@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://c11v05yommk3q"]
+
+[ext_resource type="Script" path="res://potato_crop.gd" id="1_qojwu"]
+[ext_resource type="Texture2D" uid="uid://cq1yyktomytdi" path="res://potato sprites.png" id="2_vkjof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcu3e"]
+atlas = ExtResource("2_vkjof")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1nhj"]
+atlas = ExtResource("2_vkjof")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv05b"]
+atlas = ExtResource("2_vkjof")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hucjq"]
+atlas = ExtResource("2_vkjof")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urioo"]
+atlas = ExtResource("2_vkjof")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05gli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcu3e")
+}],
+"loop": false,
+"name": &"first_stage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1nhj")
+}],
+"loop": false,
+"name": &"fourth_stage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv05b")
+}],
+"loop": false,
+"name": &"rare_stage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hucjq")
+}],
+"loop": false,
+"name": &"second_stage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urioo")
+}],
+"loop": false,
+"name": &"third_stage",
+"speed": 5.0
+}]
+
+[node name="potato_crop" type="Node2D"]
+script = ExtResource("1_qojwu")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_05gli")
+animation = &"second_stage"
+
+[node name="first_stage_timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="second_stage_timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="third_stage_timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = 3.14159
+zoom = Vector2(-13.03, -12.95)
+
+[node name="third_stage_timer2" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="firstframe" type="Sprite2D" parent="."]
+
+[connection signal="timeout" from="first_stage_timer" to="." method="_on_first_stage_timer_timeout"]
+[connection signal="timeout" from="second_stage_timer" to="." method="_on_second_stage_timer_timeout"]
+[connection signal="timeout" from="third_stage_timer" to="." method="_on_third_stage_timer_timeout"]
+[connection signal="timeout" from="third_stage_timer2" to="." method="_on_third_stage_timer_2_timeout"]

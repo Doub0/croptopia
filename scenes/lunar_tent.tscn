@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bftrtgo3ivmm6"]
+
+[ext_resource type="Texture2D" uid="uid://cvolltmei4dtl" path="res://assets/lunar_tent.png" id="1_appd5"]
+[ext_resource type="Script" path="res://scenes/lunar_tent.gd" id="1_bnxxa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rx8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_appd5")
+}],
+"loop": true,
+"name": &"tent",
+"speed": 5.0
+}]
+
+[node name="lunar_tent" type="Node2D"]
+script = ExtResource("1_bnxxa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0rx8f")
+animation = &"tent"
+
+[node name="spawn_pos" type="Marker2D" parent="."]
+position = Vector2(0, 17)

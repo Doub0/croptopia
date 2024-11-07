@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdodvglwi43s2"]
+
+[ext_resource type="Texture2D" uid="uid://d3v7wq66rgay4" path="res://assets/shelburne_church.png" id="1_01rrn"]
+[ext_resource type="Texture2D" uid="uid://g0vqqil75qy8" path="res://assets/simple_wood_floor.png" id="2_qeqkr"]
+[ext_resource type="Texture2D" uid="uid://b31my45bgnvt2" path="res://scenes/church_benches.png" id="3_e0nqd"]
+[ext_resource type="Texture2D" uid="uid://dqj6v13m4prj1" path="res://assets/church_altar.png" id="4_1j3ol"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3crs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_01rrn")
+}],
+"loop": true,
+"name": &"church",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vadry"]
+texture = ExtResource("2_qeqkr")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qix1d"]
+texture = ExtResource("3_e0nqd")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65pv7"]
+texture = ExtResource("4_1j3ol")
+use_texture_padding = false
+1:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_m6l3i"]
+sources/1 = SubResource("TileSetAtlasSource_vadry")
+sources/2 = SubResource("TileSetAtlasSource_qix1d")
+sources/3 = SubResource("TileSetAtlasSource_65pv7")
+
+[node name="shelburne_church" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c3crs")
+animation = &"church"
+
+[node name="inside_shelburne_church" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="inside_shelburne_church"]
+tile_set = SubResource("TileSet_m6l3i")
+format = 2
+layer_0/name = "ground"
+layer_0/modulate = Color(0.513726, 0.513726, 0.513726, 1)
+layer_0/tile_data = PackedInt32Array(-262136, 1, 0, -196600, 1, 0, -131064, 1, 0, -65528, 1, 0, 8, 1, 0, 65544, 1, 0, 131080, 1, 0, 196616, 1, 0, 262152, 1, 0, 327688, 1, 0, 393224, 1, 0, -262135, 1, 0, -196599, 1, 0, -131063, 1, 0, -65527, 1, 0, 9, 1, 0, 65545, 1, 0, 131081, 1, 0, 196617, 1, 0, 262153, 1, 0, 327689, 1, 0, 393225, 1, 0, -262134, 1, 0, -196598, 1, 0, -131062, 1, 0, -65526, 1, 0, 10, 1, 0, 65546, 1, 0, 131082, 1, 0, 196618, 1, 0, 262154, 1, 0, 327690, 1, 0, 393226, 1, 0, -262133, 1, 0, -196597, 1, 0, -131061, 1, 0, -65525, 1, 0, 11, 1, 0, 65547, 1, 0, 131083, 1, 0, 196619, 1, 0, 262155, 1, 0, 327691, 1, 0, 393227, 1, 0, -262132, 1, 0, -196596, 1, 0, -131060, 1, 0, -65524, 1, 0, 12, 1, 0, 65548, 1, 0, 131084, 1, 0, 196620, 1, 0, 262156, 1, 0, 327692, 1, 0, 393228, 1, 0, -262131, 1, 0, -196595, 1, 0, -131059, 1, 0, -65523, 1, 0, 13, 1, 0, 65549, 1, 0, 131085, 1, 0, 196621, 1, 0, 262157, 1, 0, 327693, 1, 0, 393229, 1, 0, -262130, 1, 0, -196594, 1, 0, -131058, 1, 0, -65522, 1, 0, 14, 1, 0, 65550, 1, 0, 131086, 1, 0, 196622, 1, 0, 262158, 1, 0, 327694, 1, 0, 393230, 1, 0, -262129, 1, 0, -196593, 1, 0, -131057, 1, 0, -65521, 1, 0, 15, 1, 0, 65551, 1, 0, 131087, 1, 0, 196623, 1, 0, 262159, 1, 0, 327695, 1, 0, 393231, 1, 0)
+layer_1/name = "objects"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(327689, 131074, 0, 327690, 196610, 0, 262153, 131074, 0, 262154, 196610, 0, 196617, 131074, 0, 196618, 196610, 0, 327693, 131074, 0, 327694, 196610, 0, 262157, 131074, 0, 262158, 196610, 0, 196621, 131074, 0, 196622, 196610, 0, 9, 131074, 0, 10, 196610, 0, 13, 131074, 0, 14, 196610, 0, -196598, 3, 2, -327669, 65539, 0, -262133, 65539, 1, -196597, 65539, 2, -262132, 131075, 1, -196596, 131075, 2)
+
+[node name="ColorRect" type="ColorRect" parent="inside_shelburne_church/TileMap"]
+show_behind_parent = true
+offset_left = 107.0
+offset_top = -76.0
+offset_right = 281.0
+offset_bottom = 128.0
+color = Color(0, 0, 0, 1)

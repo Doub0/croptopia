@@ -1,0 +1,234 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7w4j3i2go4ik"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_esj5x"]
+[ext_resource type="Texture2D" uid="uid://jwoh8qcqtcs6" path="res://assets/Titlescreen.png" id="1_g6dtn"]
+[ext_resource type="AudioStream" uid="uid://bn5alhfln2ttp" path="res://Main_menu_.wav" id="3_so8cr"]
+[ext_resource type="Texture2D" uid="uid://0ikvrjir0o3r" path="res://buttons/sr25704223c58aws3.png" id="4_eqpxx"]
+[ext_resource type="Texture2D" uid="uid://dw5gb0qg63vx4" path="res://buttons/sr257fe7dae1daws3.png" id="6_7oydk"]
+[ext_resource type="Texture2D" uid="uid://bn5k0t27kcqhs" path="res://pixilart-frames/c7e7eeb647608e2.png" id="6_582xu"]
+[ext_resource type="Texture2D" uid="uid://cea1t44om5cga" path="res://scenes/pixil-frame-0 - 2024-02-22T210355.395.png" id="7_pjfi4"]
+[ext_resource type="Texture2D" uid="uid://b85ei55ddacfl" path="res://pixil-frame-0 - 2024-02-26T083114.993.png" id="8_8bf4v"]
+
+[sub_resource type="Animation" id="Animation_en5xk"]
+resource_name = "splash"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.470588, 0, 0.207843, 1), Color(0.470588, 0, 0.207843, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/ColorRect2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2500, -600), Vector2(-3250, -605.54)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/ColorRect2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(-0.1, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/ColorRect2:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/ColorRect:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(-0.1, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/ColorRect2:visibility_layer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(-0.1, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 2, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nw0nt"]
+_data = {
+"splash": SubResource("Animation_en5xk")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_esj5x")
+
+[node name="Titlescreen" type="Sprite2D" parent="."]
+position = Vector2(13, 4)
+texture = ExtResource("1_g6dtn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(13, -2)
+zoom = Vector2(0.6, 0.545)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_so8cr")
+autoplay = true
+
+[node name="play" type="Button" parent="."]
+offset_left = -985.0
+offset_top = 304.0
+offset_right = 623.0
+offset_bottom = 1512.0
+scale = Vector2(0.297468, 0.311179)
+action_mode = 0
+icon = ExtResource("4_eqpxx")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 506.0
+offset_top = 459.0
+offset_right = 645.0
+offset_bottom = 485.0
+scale = Vector2(3.20291, 5.30584)
+text = "A game by DoubO"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="setting" type="Button" parent="."]
+offset_left = -551.0
+offset_top = 305.0
+offset_right = 1457.0
+offset_bottom = 1515.58
+scale = Vector2(0.309, 0.309)
+icon = ExtResource("6_7oydk")
+flat = true
+
+[node name="exit" type="Button" parent="."]
+offset_left = -35.0
+offset_top = 206.0
+offset_right = 108.0
+offset_bottom = 274.0
+scale = Vector2(6.722, 6.048)
+icon = ExtResource("6_582xu")
+flat = true
+
+[node name="credits" type="Button" parent="."]
+offset_left = 506.0
+offset_top = 459.0
+offset_right = 514.0
+offset_bottom = 467.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(343, 339)
+scale = Vector2(6.04, 3.935)
+texture = ExtResource("7_pjfi4")
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[node name="splash_cam" type="Camera2D" parent="."]
+position = Vector2(-2154, -15)
+rotation = 4.77871
+zoom = Vector2(-0.545, -0.495)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="splash_cam"]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="splash_cam/CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_nw0nt")
+}
+
+[node name="ColorRect" type="ColorRect" parent="splash_cam/CanvasLayer/AnimationPlayer"]
+offset_left = -3224.0
+offset_top = -677.0
+offset_right = -1071.0
+offset_bottom = 662.0
+color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[node name="TextureRect" type="TextureRect" parent="splash_cam/CanvasLayer/AnimationPlayer"]
+modulate = Color(0.470588, 0, 0.207843, 0)
+self_modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = -1655.0
+offset_top = 435.0
+offset_right = -1615.0
+offset_bottom = 475.0
+rotation = 3.14159
+scale = Vector2(24.535, 24.535)
+texture = ExtResource("8_8bf4v")
+
+[node name="ColorRect2" type="ColorRect" parent="splash_cam/CanvasLayer/AnimationPlayer"]
+top_level = true
+visibility_layer = 2
+offset_left = -3250.0
+offset_top = -605.54
+offset_right = -2568.0
+offset_bottom = 577.46
+color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Label" to="." method="_on_label_mouse_entered"]
+[connection signal="pressed" from="setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

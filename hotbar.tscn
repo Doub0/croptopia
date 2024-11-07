@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://bji8runx74yue"]
+
+[ext_resource type="Script" path="res://hotbar.gd" id="1_8ubtu"]
+[ext_resource type="Texture2D" uid="uid://bgvhn1tjdgivh" path="res://pixil-frame-0 - 2024-05-05T160607.523.png" id="2_o3ntq"]
+[ext_resource type="PackedScene" uid="uid://bjh42fcgoin8r" path="res://inventory/inv_ui_slot.tscn" id="3_o4y6e"]
+[ext_resource type="Texture2D" uid="uid://ciw3g00ixyopf" path="res://inventory/pixil-frame-0 - 2024-02-05T105702.567.png" id="4_di0iv"]
+
+[node name="hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ubtu")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 216.025
+offset_bottom = 28.0
+texture = ExtResource("2_o3ntq")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 221.0
+offset_bottom = 99.0
+scale = Vector2(1.36, 1.4)
+columns = 8
+
+[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o4y6e")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 219.0
+offset_bottom = 99.0
+scale = Vector2(1.36, 1.4)
+columns = 8
+
+[node name="select_4_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(67.6471, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397321, 0.409007)
+texture = ExtResource("4_di0iv")
+
+[node name="select_5_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(87.5, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397143, 0.408824)
+texture = ExtResource("4_di0iv")
+
+[node name="select_6_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(107.353, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397143, 0.408824)
+texture = ExtResource("4_di0iv")
+
+[node name="select_7_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(127.206, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397143, 0.408824)
+texture = ExtResource("4_di0iv")
+
+[node name="select_8_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(146.324, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397143, 0.408824)
+texture = ExtResource("4_di0iv")
+
+[node name="select_1_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(8.08824, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397143, 0.408824)
+texture = ExtResource("4_di0iv")
+
+[node name="select_2_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(27.9412, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397143, 0.408824)
+texture = ExtResource("4_di0iv")
+
+[node name="select_3_indicator" type="Sprite2D" parent="GridContainer"]
+position = Vector2(47.7941, 1.42857)
+rotation = 1.5708
+scale = Vector2(0.397143, 0.408824)
+texture = ExtResource("4_di0iv")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhmpb5b728jod"]
+
+[ext_resource type="Texture2D" uid="uid://b0rcgvh5haje5" path="res://pixil-frame-0 - 2024-01-20T152022.549.png" id="1_s2ju6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2wvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s2ju6")
+}],
+"loop": true,
+"name": &"small_oak",
+"speed": 5.0
+}]
+
+[node name="small_oak" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o2wvl")
+animation = &"small_oak"

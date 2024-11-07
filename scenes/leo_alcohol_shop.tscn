@@ -1,0 +1,350 @@
+[gd_scene load_steps=25 format=3 uid="uid://sctkcyuqlvyj"]
+
+[ext_resource type="Texture2D" uid="uid://cqfn1v1j58ir3" path="res://assets/alcohol_shop.png" id="1_hw0u5"]
+[ext_resource type="Script" path="res://scripts/leo_alcohol_shop.gd" id="1_nw1hp"]
+[ext_resource type="Texture2D" uid="uid://c81gngegnmwob" path="res://assets/brock_sprite_sheet.png" id="2_oh5w5"]
+[ext_resource type="Texture2D" uid="uid://bwti4uwrdvxao" path="res://assets/alcohol_UI.png" id="3_axaoj"]
+[ext_resource type="Texture2D" uid="uid://b4482etmviygq" path="res://assets/ful_clock.png" id="4_kfnmv"]
+[ext_resource type="Texture2D" uid="uid://cal3fyi4tjwys" path="res://assets/level_frame.png" id="5_2l3i8"]
+[ext_resource type="FontFile" uid="uid://uynswcck0os1" path="res://fonts/pixelated.ttf" id="6_1bwo1"]
+[ext_resource type="Texture2D" uid="uid://behwavhlev0ff" path="res://assets/leo-dune-emotions.png" id="7_4lvk1"]
+[ext_resource type="Texture2D" uid="uid://do8sjae1aqcto" path="res://assets/beer.png" id="8_wjir1"]
+[ext_resource type="Texture2D" uid="uid://bfe3httvdhbt3" path="res://assets/brew_purchase.png" id="9_6btac"]
+[ext_resource type="Texture2D" uid="uid://c8riecp4shyu5" path="res://assets/wine.png" id="10_l276c"]
+[ext_resource type="Texture2D" uid="uid://difdrvx7q4u1q" path="res://assets/whiskey.png" id="11_4a6c3"]
+[ext_resource type="Texture2D" uid="uid://byk5owryktqdg" path="res://assets/jagermeister.png" id="12_uks7j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w44qd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hw0u5")
+}],
+"loop": true,
+"name": &"shop",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb8co"]
+atlas = ExtResource("2_oh5w5")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4q027"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb8co")
+}],
+"loop": true,
+"name": &"leo",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwr5v"]
+texture = ExtResource("3_axaoj")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcvsh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kfnmv")
+}],
+"loop": true,
+"name": &"default_time",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edx6i"]
+atlas = ExtResource("5_2l3i8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8bs5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edx6i")
+}],
+"loop": true,
+"name": &"default_time",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8we3w"]
+atlas = ExtResource("7_4lvk1")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o4ku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8we3w")
+}],
+"loop": true,
+"name": &"leo_smile",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb7ly"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lq0p2"]
+radius = 52.6308
+
+[node name="leo_alcohol_shop" type="Node2D"]
+script = ExtResource("1_nw1hp")
+
+[node name="shop" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w44qd")
+animation = &"shop"
+
+[node name="leo" type="AnimatedSprite2D" parent="shop"]
+show_behind_parent = true
+position = Vector2(-4, 13)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_4q027")
+animation = &"leo"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="shop_ui" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 8.66667
+offset_right = 52.0
+offset_bottom = 48.6667
+
+[node name="background" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 191.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pwr5v")
+
+[node name="timer_panel" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 104.0
+offset_bottom = 46.0
+
+[node name="brew_clock" type="AnimatedSprite2D" parent="CanvasLayer/shop_ui/timer_panel"]
+position = Vector2(13, 15)
+scale = Vector2(0.71875, 0.71875)
+sprite_frames = SubResource("SpriteFrames_jcvsh")
+animation = &"default_time"
+
+[node name="leo_level_frame" type="AnimatedSprite2D" parent="CanvasLayer/shop_ui/timer_panel"]
+position = Vector2(74, 14.3333)
+sprite_frames = SubResource("SpriteFrames_t8bs5")
+animation = &"default_time"
+
+[node name="leo_level" type="Label" parent="CanvasLayer/shop_ui/timer_panel/leo_level_frame"]
+offset_left = -3.0
+offset_top = -8.0
+offset_right = 37.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "1"
+
+[node name="brew_timer" type="Label" parent="CanvasLayer/shop_ui/timer_panel"]
+layout_mode = 0
+offset_left = 30.6667
+offset_top = 10.0
+offset_right = 86.6667
+offset_bottom = 33.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "00:00:00"
+
+[node name="leo_portrait" type="AnimatedSprite2D" parent="CanvasLayer/shop_ui"]
+position = Vector2(303, 38)
+scale = Vector2(0.188333, 0.188333)
+sprite_frames = SubResource("SpriteFrames_7o4ku")
+animation = &"leo_smile"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_ui/leo_portrait"]
+show_behind_parent = true
+offset_left = -149.0
+offset_top = -149.0
+offset_right = 149.0
+offset_bottom = 149.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 66.0
+offset_right = 265.0
+offset_bottom = 177.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eb7ly")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/shop_ui/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="item_slot_1" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="item_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_slot_1"]
+position = Vector2(9, 14)
+texture = ExtResource("8_wjir1")
+
+[node name="item_info_1" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+
+[node name="item_info" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_1"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 7.0
+offset_right = 313.0
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "A classic brew with a low brew time"
+
+[node name="item_title" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_1"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 45.0
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "Beer |"
+
+[node name="item_purchase_1" type="Button" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("9_6btac")
+flat = true
+
+[node name="item_slot_2" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="item_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_slot_2"]
+position = Vector2(9, 9)
+texture = ExtResource("10_l276c")
+
+[node name="item_info_2" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+
+[node name="item_info" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_2"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 2.0
+offset_right = 313.0
+offset_bottom = 44.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "A drink commonly associated with Jesus' blood in Christian Faith"
+autowrap_mode = 3
+
+[node name="item_title" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 45.0
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "Wine |"
+
+[node name="item_purchase_2" type="Button" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("9_6btac")
+flat = true
+
+[node name="item_slot_3" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="item_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_slot_3"]
+position = Vector2(9, 9)
+texture = ExtResource("11_4a6c3")
+
+[node name="item_info_3" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+
+[node name="item_info" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_3"]
+layout_mode = 0
+offset_left = 59.0
+offset_right = 313.0
+offset_bottom = 63.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "A strong liquor that is known for it's high alcohol content, and is cheap!"
+autowrap_mode = 3
+
+[node name="item_title" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 67.0
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "Whiskey |"
+
+[node name="item_purchase_3" type="Button" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("9_6btac")
+flat = true
+
+[node name="item_slot_4" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="item_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_slot_4"]
+position = Vector2(9, 14)
+texture = ExtResource("12_uks7j")
+
+[node name="item_info_4" type="Panel" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+
+[node name="item_info" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_4"]
+layout_mode = 0
+offset_left = 59.0
+offset_right = 313.0
+offset_bottom = 42.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "A German Herbal mixture that is destined to knock you out!"
+autowrap_mode = 3
+
+[node name="item_title" type="Label" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer/item_info_4"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 45.0
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_1bwo1")
+text = "Jagermeister |"
+
+[node name="item_purchase_4" type="Button" parent="CanvasLayer/shop_ui/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("9_6btac")
+flat = true
+
+[node name="shop_open" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shop_open"]
+visible = false
+shape = SubResource("CircleShape2D_lq0p2")
+
+[connection signal="body_entered" from="shop_open" to="." method="_on_shop_open_body_entered"]
+[connection signal="body_exited" from="shop_open" to="." method="_on_shop_open_body_exited"]

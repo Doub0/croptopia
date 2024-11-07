@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://deooq4iep5pp"]
+
+[ext_resource type="Script" path="res://whitepine_tree.gd" id="1_7v88g"]
+[ext_resource type="Resource" uid="uid://yvthj864bnge" path="res://whitepinecone.tres" id="2_4fs0s"]
+[ext_resource type="Texture2D" uid="uid://civh058hdyeyl" path="res://whitepine.png" id="2_ju3ck"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hra1s"]
+atlas = ExtResource("2_ju3ck")
+region = Rect2(0, 0, 75, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knh82"]
+atlas = ExtResource("2_ju3ck")
+region = Rect2(75, 0, 75, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hp274"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hra1s")
+}],
+"loop": true,
+"name": &"no_pinecone",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knh82")
+}],
+"loop": true,
+"name": &"pinecone",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjb7o"]
+radius = 50.4876
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h26jr"]
+
+[node name="whitepine_tree" type="Node2D"]
+script = ExtResource("1_7v88g")
+item = ExtResource("2_4fs0s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hp274")
+animation = &"no_pinecone"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+position = Vector2(-4, 17)
+shape = SubResource("CircleShape2D_gjb7o")
+
+[node name="growth_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-4, 25)
+shape = SubResource("CircleShape2D_h26jr")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered" flags=18]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited" flags=18]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout" flags=18]

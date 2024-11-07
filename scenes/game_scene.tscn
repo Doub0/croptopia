@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dms2ns1y2wync"]
+
+[node name="game_scene" type="Node2D"]
+
+[node name="spawn" type="Node2D" parent="."]
+
+[node name="shelburne_forest" type="Node2D" parent="."]
+
+[node name="shelburne_town" type="Node2D" parent="."]
+
+[node name="michael_plot" type="Node2D" parent="."]
+
+[node name="mt_crag" type="Node2D" parent="."]
+
+[node name="deep_forest" type="Node2D" parent="."]
+
+[node name="lunar_territory" type="Node2D" parent="."]

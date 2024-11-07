@@ -1,0 +1,202 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjk5ac0ca2deb"]
+
+[ext_resource type="Animation" uid="uid://jc5oj0b22i4" path="res://scripts/day_night_cycle_reverse.res" id="1_oa2jr"]
+[ext_resource type="Texture2D" uid="uid://cfu2fnyqax450" path="res://assets/pixil-frame-0 (5).png" id="2_gentg"]
+
+[sub_resource type="Animation" id="Animation_yu7lu"]
+resource_name = "day_night_cycle"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-3.8, 18.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0.639216)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2frij"]
+_data = {
+"day_night_cycle": SubResource("Animation_yu7lu")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whls8"]
+_data = {
+"day_night_cycle_reverse": ExtResource("1_oa2jr")
+}
+
+[sub_resource type="Animation" id="Animation_qd2br"]
+resource_name = "night_cycle"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-1.6, 23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.639216), Color(0, 0, 0, 0.639216)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lkj74"]
+_data = {
+"night_cycle": SubResource("Animation_qd2br")
+}
+
+[sub_resource type="Animation" id="Animation_s3wn8"]
+resource_name = "day_cycle"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.9, 26.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3aro7"]
+_data = {
+"day_cycle": SubResource("Animation_s3wn8")
+}
+
+[node name="game_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ui" type="Control" parent="."]
+self_modulate = Color(0.00382302, 0.00382302, 0.00382302, 0.466062)
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="sunset_rect" type="ColorRect" parent="ui"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -419.0
+offset_top = -302.0
+offset_right = 573.0
+offset_bottom = 389.0
+color = Color(0, 0, 0, 1)
+
+[node name="sunset_cycle" type="AnimationPlayer" parent="ui/sunset_rect"]
+libraries = {
+"": SubResource("AnimationLibrary_2frij")
+}
+
+[node name="sunrise_rect" type="ColorRect" parent="ui"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+offset_left = -419.0
+offset_top = -302.0
+offset_right = 573.0
+offset_bottom = 389.0
+color = Color(0, 0, 0, 1)
+
+[node name="sunrise_cycle" type="AnimationPlayer" parent="ui/sunrise_rect"]
+libraries = {
+"": SubResource("AnimationLibrary_whls8")
+}
+
+[node name="night_rect" type="ColorRect" parent="ui"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+offset_left = -419.0
+offset_top = -302.0
+offset_right = 573.0
+offset_bottom = 389.0
+color = Color(0, 0, 0, 1)
+
+[node name="night_cycle" type="AnimationPlayer" parent="ui/night_rect"]
+libraries = {
+"": SubResource("AnimationLibrary_lkj74")
+}
+
+[node name="day_rect" type="ColorRect" parent="ui"]
+visible = false
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 0
+offset_left = -419.0
+offset_top = -302.0
+offset_right = 573.0
+offset_bottom = 389.0
+color = Color(0, 0, 0, 1)
+
+[node name="day_cycle" type="AnimationPlayer" parent="ui/day_rect"]
+libraries = {
+"": SubResource("AnimationLibrary_3aro7")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ui"]
+
+[node name="Panel" type="Panel" parent="ui/CanvasLayer"]
+offset_left = 41.0
+offset_top = 40.0
+offset_right = 81.0
+offset_bottom = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ui/CanvasLayer/Panel"]
+position = Vector2(19, 19)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_gentg")
+
+[node name="count" type="Label" parent="ui/CanvasLayer/Panel/Sprite2D"]
+offset_left = -5.0
+offset_top = -2.0
+offset_right = 34.0
+offset_bottom = 24.0
+text = "0"
+
+[node name="day" type="Label" parent="ui/CanvasLayer/Panel/Sprite2D"]
+offset_left = -17.0
+offset_top = -23.0
+offset_right = 23.0
+offset_bottom = 3.0
+text = "Day"
+
+[node name="money_count" type="CanvasLayer" parent="ui"]
+
+[node name="Panel" type="Panel" parent="ui/money_count"]
+offset_left = 1090.0
+offset_top = 40.0
+offset_right = 1130.0
+offset_bottom = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ui/money_count/Panel"]
+position = Vector2(19, 19)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_gentg")
+
+[node name="count" type="Label" parent="ui/money_count/Panel/Sprite2D"]
+offset_left = -10.4
+offset_top = -14.4
+offset_right = 28.6
+offset_bottom = 11.6
+text = "0"
+
+[node name="dollars" type="Label" parent="ui/money_count/Panel/Sprite2D"]
+offset_left = 0.799988
+offset_top = -14.4
+offset_right = 40.8
+offset_bottom = 11.6
+text = "$"

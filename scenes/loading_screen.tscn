@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://c6fv0fmk37i0k"]
+
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="1_3mkkv"]
+[ext_resource type="Texture2D" uid="uid://ctwbkbji73rw6" path="res://pixilart-frames/pixil-frame-0.png" id="2_417ke"]
+[ext_resource type="Texture2D" uid="uid://fowjexfh8smq" path="res://pixilart-frames/pixil-frame-1.png" id="3_qapbt"]
+[ext_resource type="Texture2D" uid="uid://m2lm1nwlt5ev" path="res://pixilart-frames/pixil-frame-2.png" id="4_idtg0"]
+[ext_resource type="Texture2D" uid="uid://b1kor8kujxt4y" path="res://pixilart-frames/pixil-frame-3.png" id="5_1kv42"]
+[ext_resource type="Texture2D" uid="uid://boy6wfyor65b8" path="res://pixilart-frames/pixil-frame-4.png" id="6_ajxtx"]
+[ext_resource type="Texture2D" uid="uid://vvsw7q23wh6w" path="res://pixilart-frames/pixil-frame-5.png" id="7_kjh3w"]
+[ext_resource type="Texture2D" uid="uid://do6d3qu550fe8" path="res://pixilart-frames/pixil-frame-6.png" id="8_eviqq"]
+[ext_resource type="Texture2D" uid="uid://dk3bv2s3vegsf" path="res://pixilart-frames/pixil-frame-7.png" id="9_jxqpf"]
+[ext_resource type="Texture2D" uid="uid://bat01w5shgxvy" path="res://pixilart-frames/pixil-frame-8.png" id="10_j67ie"]
+[ext_resource type="Texture2D" uid="uid://56rp4et1lbjq" path="res://pixilart-frames/pixil-frame-9.png" id="11_8644j"]
+
+[sub_resource type="Animation" id="Animation_0p01n"]
+resource_name = "RESET"
+
+[sub_resource type="Animation" id="Animation_mx2g8"]
+resource_name = "dissolve"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dissolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sltk7"]
+_data = {
+"RESET": SubResource("Animation_0p01n"),
+"dissolve": SubResource("Animation_mx2g8")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_el240"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_417ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qapbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_idtg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1kv42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ajxtx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kjh3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eviqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jxqpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j67ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8644j")
+}],
+"loop": true,
+"name": &"loadingscreen",
+"speed": 12.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_3mkkv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sltk7")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_el240")
+animation = &"loadingscreen"
+frame = 8
+frame_progress = 0.596035
+
+[node name="dissolve_rect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -100.0
+offset_right = -1048.0
+offset_bottom = -627.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, -46)
+zoom = Vector2(5.795, 5.6)

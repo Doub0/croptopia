@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://c11wsnfon4vpt"]
+
+[ext_resource type="Texture2D" uid="uid://cofikhit83bju" path="res://scenes/pixil-frame-0 - 2023-12-11T110033.820.png" id="1_shed4"]
+[ext_resource type="Texture2D" uid="uid://bh2nqi6as4r55" path="res://scenes/pixil-frame-0 - 2023-12-11T110236.179.png" id="2_4ppcb"]
+[ext_resource type="Texture2D" uid="uid://bcuqdgfh7dgae" path="res://scenes/pixil-frame-0 - 2023-12-11T105420.784.png" id="3_mhsif"]
+[ext_resource type="Texture2D" uid="uid://dgynv2v3yj15v" path="res://scenes/pixil-frame-0 - 2023-12-11T110052.545.png" id="4_2qnqg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mib7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_shed4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ppcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mhsif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2qnqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ppcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_shed4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2qnqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mhsif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ww30"]
+
+[node name="npctest" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mib7u")
+frame = 5
+frame_progress = 0.364726
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+shape = SubResource("CapsuleShape2D_4ww30")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://rr4uibsevbum"]
+
+[ext_resource type="Script" path="res://oak_tree.gd" id="1_o8sto"]
+[ext_resource type="Resource" uid="uid://o81n7y8r6xp4" path="res://apricorn.tres" id="2_3s866"]
+[ext_resource type="Texture2D" uid="uid://wawi0hbpt2tw" path="res://assets/pixil-frame-0 - 2024-03-16T135222.349.png" id="3_1fsq0"]
+[ext_resource type="Texture2D" uid="uid://ben4k2gtrfmv6" path="res://assets/pixil-frame-0 - 2024-03-16T135100.655.png" id="4_cke5e"]
+[ext_resource type="Texture2D" uid="uid://dvwuvbymovs2" path="res://pixilart-frames/pixil-frame-0 - 2024-02-08T084127.840.png" id="5_n7c21"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nd4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1fsq0")
+}],
+"loop": true,
+"name": &"no_oak",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cke5e")
+}],
+"loop": true,
+"name": &"oak",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_654gx"]
+radius = 22.0907
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_in0n2"]
+radius = 8.06226
+
+[node name="oak_tree" type="Node2D"]
+z_index = 2
+script = ExtResource("1_o8sto")
+item = ExtResource("2_3s866")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1nd4r")
+animation = &"no_oak"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+position = Vector2(-7, 10)
+shape = SubResource("CircleShape2D_654gx")
+
+[node name="growth_timer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.321569, 0.321569, 0.321569, 0.560784)
+show_behind_parent = true
+position = Vector2(27, 18)
+scale = Vector2(1.47461, 0.931153)
+texture = ExtResource("5_n7c21")
+
+[node name="CharacterBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-1, 24)
+shape = SubResource("CircleShape2D_in0n2")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout"]

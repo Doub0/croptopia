@@ -1,0 +1,395 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctajy8bx2f4fk"]
+
+[ext_resource type="Script" path="res://crafting_menu.gd" id="1_ac8ah"]
+[ext_resource type="Texture2D" uid="uid://dshy50y8158ll" path="res://assets/pixil-frame-0 (7).png" id="5_jwwn1"]
+[ext_resource type="Texture2D" uid="uid://8jbeplpg7qjj" path="res://inventory/pixil-frame-0 (9).png" id="6_k5ovn"]
+[ext_resource type="PackedScene" uid="uid://cgjvaaggyv0t4" path="res://inventory/inv_ui.tscn" id="7_sktng"]
+[ext_resource type="Texture2D" uid="uid://b0tgusae7e8bi" path="res://inventory/pixil-frame-0 (13).png" id="8_0tue8"]
+[ext_resource type="Texture2D" uid="uid://bh1cx3iy408aa" path="res://sr29490ef6af9aws3.png" id="8_5eqr6"]
+[ext_resource type="Texture2D" uid="uid://r26b2qggvft1" path="res://inventory/marker_notclicked.png" id="10_oxeq1"]
+
+[node name="Crafting_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ac8ah")
+
+[node name="Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 1120.0
+offset_top = 1120.0
+offset_right = 1160.0
+offset_bottom = 1160.0
+
+[node name="Panel" type="Panel" parent="Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Menu/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 42.0
+scale = Vector2(9.74, 4.87)
+color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[node name="TabContainer" type="TabContainer" parent="Menu"]
+layout_mode = 0
+offset_top = -6.8046
+offset_right = 389.0
+offset_bottom = 24.1954
+clip_tabs = false
+
+[node name="Inventory" type="TabBar" parent="Menu/TabContainer"]
+layout_mode = 2
+
+[node name="Character" type="TabBar" parent="Menu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Map" type="TabBar" parent="Menu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Crafting" type="TabBar" parent="Menu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Menu"]
+layout_mode = 0
+offset_left = 335.0
+offset_top = -15.0
+offset_right = 393.0
+offset_bottom = 33.0
+
+[node name="exit_menu" type="Button" parent="Menu/GridContainer"]
+layout_mode = 2
+icon = ExtResource("5_jwwn1")
+flat = true
+
+[node name="Character" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 1120.0
+offset_top = 1120.0
+offset_right = 1160.0
+offset_bottom = 1160.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Character"]
+position = Vector2(50, 60)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("6_k5ovn")
+
+[node name="Label" type="Label" parent="Character"]
+layout_mode = 0
+offset_left = 11.2471
+offset_top = 115.676
+offset_right = 129.247
+offset_bottom = 138.676
+theme_override_font_sizes/font_size = 12
+text = "Name: Michael View"
+
+[node name="ColorRect" type="ColorRect" parent="Character"]
+layout_mode = 0
+offset_left = 19.6207
+offset_top = 140.796
+offset_right = 119.621
+offset_bottom = 141.796
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="Character"]
+layout_mode = 0
+offset_left = 195.792
+offset_top = 8.38339
+offset_right = 279.792
+offset_bottom = 34.3834
+text = "Biography:"
+
+[node name="Label3" type="Label" parent="Character"]
+layout_mode = 0
+offset_left = 140.267
+offset_top = 39.999
+offset_right = 4352.27
+offset_bottom = 1040.0
+theme_override_font_sizes/font_size = 8
+text = "Michael View, or as he is sometimes refered to Mike, 
+is the Main Character in the Video Game Croptopia.
+
+Born 26 July 2002, he was born and raised in Staten Island, New York, to parents from New Hampshire. 
+Growing up, he would frequently catch fish in his local creek, documenting the catches.
+
+ Some of this interest also led him to foraging, which he and his Grandpa would frequently do in Delaware. 
+When he reached highschool he took a Biology study and got drafted to an exam, which he passed. 
+Moving out, Michael struggled with moving out of his parents house due to his relations to his family, frequently helping them in their everyday tasks."
+
+[node name="Label4" type="Label" parent="Character"]
+layout_mode = 0
+offset_left = 11.2471
+offset_top = 146.436
+offset_right = 129.247
+offset_bottom = 169.436
+theme_override_font_sizes/font_size = 12
+text = "Age: 26"
+horizontal_alignment = 1
+
+[node name="Crafting" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 1120.0
+offset_top = 1120.0
+offset_right = 1160.0
+offset_bottom = 1160.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Crafting"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 200.0
+texture = ExtResource("8_5eqr6")
+
+[node name="GridContainer" type="GridContainer" parent="Crafting/NinePatchRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 56.0
+offset_right = 350.0
+offset_bottom = 251.0
+scale = Vector2(1.4, 1.4)
+columns = 3
+
+[node name="Crafting_slot1" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot2" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot3" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot4" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot5" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot6" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot7" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot8" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Crafting_slot9" type="Panel" parent="Crafting/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="zoom_cam" type="Camera2D" parent="."]
+position = Vector2(1322, 1218)
+zoom = Vector2(2.845, 2.845)
+
+[node name="anchor_point" type="Marker2D" parent="."]
+position = Vector2(1512.14, 1119.38)
+
+[node name="Map" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1120.0
+offset_top = 1120.0
+offset_right = 1160.0
+offset_bottom = 1160.0
+
+[node name="Container" type="Container" parent="Map"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Container"]
+position = Vector2(196, 106)
+scale = Vector2(0.377754, 0.377753)
+texture = ExtResource("8_0tue8")
+
+[node name="markers" type="Control" parent="Map"]
+anchors_preset = 0
+offset_left = 280.0
+offset_top = 142.0
+offset_right = 320.0
+offset_bottom = 182.0
+
+[node name="shelburne_forest" type="Button" parent="Map/markers"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -8.0
+offset_right = 48.0
+scale = Vector2(0.5, 0.5)
+toggle_mode = true
+icon = ExtResource("10_oxeq1")
+flat = true
+
+[node name="spawn_marker" type="Button" parent="Map/markers"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 36.0
+offset_right = 69.0
+offset_bottom = 59.0
+scale = Vector2(0.5, 0.5)
+toggle_mode = true
+icon = ExtResource("10_oxeq1")
+flat = true
+
+[node name="shelburne_centrum" type="Button" parent="Map/markers"]
+layout_mode = 0
+offset_left = -143.0
+offset_top = -22.0
+offset_right = -135.0
+offset_bottom = -14.0
+scale = Vector2(0.5, 0.5)
+toggle_mode = true
+icon = ExtResource("10_oxeq1")
+flat = true
+
+[node name="sandbox" type="Button" parent="Map/markers"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -36.0
+offset_right = -21.0
+offset_bottom = -13.0
+scale = Vector2(0.5, 0.5)
+toggle_mode = true
+icon = ExtResource("10_oxeq1")
+flat = true
+
+[node name="info_popup" type="Control" parent="Map/markers"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="shelburne_info" type="Panel" parent="Map/markers/info_popup"]
+layout_mode = 0
+offset_left = -135.0
+offset_top = -72.0
+offset_right = -61.0
+offset_bottom = -22.0
+
+[node name="Label" type="Label" parent="Map/markers/info_popup/shelburne_info"]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 50.0
+scale = Vector2(0.485, 0.485)
+text = "Shelburne Centrum"
+
+[node name="Label2" type="Label" parent="Map/markers/info_popup/shelburne_info"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 274.0
+offset_bottom = 158.0
+scale = Vector2(0.27, 0.27)
+text = "Shelburne is a town situated in the American State of New Hampshire, and "
+autowrap_mode = 1
+clip_text = true
+
+[node name="sandbox_info" type="Panel" parent="Map/markers/info_popup"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -83.0
+offset_right = 47.0
+offset_bottom = -33.0
+
+[node name="Label2" type="Label" parent="Map/markers/info_popup/sandbox_info"]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 50.0
+scale = Vector2(0.485, 0.485)
+text = "Sandbox"
+
+[node name="Label3" type="Label" parent="Map/markers/info_popup/sandbox_info"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 274.0
+offset_bottom = 158.0
+scale = Vector2(0.27, 0.27)
+text = "This is Michael View's private property granted by Mark Gray.
+Building is permitted on the plot, and is off-limits for other villagers."
+autowrap_mode = 2
+clip_text = true
+
+[node name="shelburne_forest_info" type="Panel" parent="Map/markers/info_popup"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = -58.0
+offset_right = 125.0
+offset_bottom = -8.0
+
+[node name="Label2" type="Label" parent="Map/markers/info_popup/shelburne_forest_info"]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 50.0
+scale = Vector2(0.485, 0.485)
+text = "Shelburne Forest"
+
+[node name="Label3" type="Label" parent="Map/markers/info_popup/shelburne_forest_info"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 274.0
+offset_bottom = 158.0
+scale = Vector2(0.27, 0.27)
+text = "A little sneakpeak of Shelburne covered in loose forests, rich in resources such as wood and berries."
+autowrap_mode = 2
+clip_text = true
+
+[node name="spawn_info" type="Panel" parent="Map/markers/info_popup"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = -14.0
+offset_right = 130.0
+offset_bottom = 36.0
+
+[node name="Label" type="Label" parent="Map/markers/info_popup/spawn_info"]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 50.0
+
+[node name="Label2" type="Label" parent="Map/markers/info_popup/spawn_info"]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 50.0
+scale = Vector2(0.485, 0.485)
+text = "Spawn"
+
+[node name="Label3" type="Label" parent="Map/markers/info_popup/spawn_info"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 274.0
+offset_bottom = 158.0
+scale = Vector2(0.27, 0.27)
+text = "The starter location of Michael, an open field with a creek and a pond. How does one get stranded here?"
+autowrap_mode = 1
+clip_text = true
+
+[node name="Inv_UI" parent="." instance=ExtResource("7_sktng")]
+offset_left = 1193.0
+offset_top = 1160.0
+offset_right = 1424.0
+offset_bottom = 1259.0
+scale = Vector2(1, 1.168)
+
+[connection signal="tab_clicked" from="Menu/TabContainer" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="tab_clicked" from="Menu/TabContainer/Inventory" to="." method="_on_inventory_tab_clicked"]
+[connection signal="tab_clicked" from="Menu/TabContainer/Character" to="." method="_on_character_tab_clicked"]
+[connection signal="tab_clicked" from="Menu/TabContainer/Map" to="." method="_on_map_tab_clicked"]
+[connection signal="tab_clicked" from="Menu/TabContainer/Crafting" to="." method="_on_crafting_tab_clicked"]
+[connection signal="pressed" from="Menu/GridContainer/exit_menu" to="." method="_on_exit_menu_pressed"]
+[connection signal="toggled" from="Map/markers/shelburne_forest" to="." method="_on_shelburne_forest_toggled"]
+[connection signal="toggled" from="Map/markers/spawn_marker" to="." method="_on_spawn_marker_toggled"]
+[connection signal="toggled" from="Map/markers/shelburne_centrum" to="." method="_on_shelburne_centrum_toggled"]
+[connection signal="toggled" from="Map/markers/sandbox" to="." method="_on_sandbox_toggled"]

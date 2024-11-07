@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdvdu72q4m6xm"]
+
+[ext_resource type="Texture2D" uid="uid://b7p6qvvman7rh" path="res://pixil-frame-0 - 2024-01-21T180940.869.png" id="1_2dbfp"]
+
+[node name="bush" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2dbfp")

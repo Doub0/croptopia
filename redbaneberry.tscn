@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck6tow2e3wb81"]
+
+[ext_resource type="Script" path="res://redbaneberry.gd" id="1_gj0h0"]
+[ext_resource type="Resource" uid="uid://bt8evf4s0uyyt" path="res://redbaneberry.tres" id="2_jyh0k"]
+[ext_resource type="Texture2D" uid="uid://dli5bg5c3lua2" path="res://redbaneberry.png" id="3_8iny1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkoab"]
+atlas = ExtResource("3_8iny1")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5w2j"]
+atlas = ExtResource("3_8iny1")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3mv8q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkoab")
+}],
+"loop": true,
+"name": &"no_redbaneberry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5w2j")
+}],
+"loop": true,
+"name": &"redbaneberry",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awraw"]
+radius = 25.1794
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cx0jb"]
+
+[node name="redbaneberry" type="Node2D"]
+script = ExtResource("1_gj0h0")
+item = ExtResource("2_jyh0k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.764, 0.764)
+sprite_frames = SubResource("SpriteFrames_3mv8q")
+animation = &"redbaneberry"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+shape = SubResource("CircleShape2D_awraw")
+
+[node name="growth_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+shape = SubResource("CircleShape2D_cx0jb")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout"]

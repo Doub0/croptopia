@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cue08qdh80u6k"
+path="res://.godot/imported/x2mate.com - eek! but every eek is replaced with ahh (128 kbps).mp3-b768903fa6e0c0d87633fc2d4093aaa8.mp3str"
+
+[deps]
+
+source_file="res://x2mate.com - eek! but every eek is replaced with ahh (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - eek! but every eek is replaced with ahh (128 kbps).mp3-b768903fa6e0c0d87633fc2d4093aaa8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

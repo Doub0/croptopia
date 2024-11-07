@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://2a3auc1xbk01"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_ajglg"]
+[ext_resource type="Texture2D" uid="uid://cuo53syeusbpd" path="res://pixil-frame-0 - 2024-01-23T110734.017.png" id="2_085qi"]
+
+[resource]
+script = ExtResource("1_ajglg")
+name = "Cranberry"
+texture = ExtResource("2_085qi")

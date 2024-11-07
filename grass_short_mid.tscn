@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsmpxbh12wrt0"]
+
+[ext_resource type="Texture2D" uid="uid://b7k7fyttnf1hm" path="res://pixil-frame-0 - 2024-01-23T130952.643.png" id="1_7i5oo"]
+
+[node name="grass_short_mid" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7i5oo")

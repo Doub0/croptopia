@@ -1,0 +1,449 @@
+[gd_scene load_steps=23 format=3 uid="uid://1mtdl2ud1ff5"]
+
+[ext_resource type="Texture2D" uid="uid://bcaqkjwy12vy" path="res://pixil-frame-0 - 2024-02-26T132147.882.png" id="1_848gu"]
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_i0710"]
+[ext_resource type="Texture2D" uid="uid://cmen6ueecmt7t" path="res://pixil-frame-1 (3).png" id="2_ej5ii"]
+[ext_resource type="Texture2D" uid="uid://dq5wp11el2ogq" path="res://pixil-frame-1 (4).png" id="4_q4wwa"]
+[ext_resource type="Texture2D" uid="uid://cge8ftwtdhekw" path="res://pixil-frame-1 (5).png" id="5_124ry"]
+[ext_resource type="Texture2D" uid="uid://d0bnbgp01plaq" path="res://pixil-frame-0 - 2024-02-03T192405.463.png" id="6_vbdm1"]
+[ext_resource type="Texture2D" uid="uid://c4lrcs3m05o78" path="res://adobe_pixelart.png" id="7_8mrxv"]
+[ext_resource type="FontFile" uid="uid://bulncx6o12hyc" path="res://fonts/Stay Pixel DEMO.ttf" id="8_8bnr6"]
+[ext_resource type="Script" path="res://Video.gd" id="10_eb7up"]
+[ext_resource type="Texture2D" uid="uid://b7le1uqnly62d" path="res://pixil-frame-0 - 2024-02-29T082037.267.png" id="12_6o371"]
+[ext_resource type="Texture2D" uid="uid://xgoehesh112d" path="res://pixil-frame-0 - 2024-02-28T201146.444.png" id="12_dwmg1"]
+[ext_resource type="Shader" path="res://pause_menu.gdshader" id="13_2tjfb"]
+[ext_resource type="Script" path="res://audio_settings.gd" id="13_71afq"]
+[ext_resource type="Texture2D" uid="uid://46222wnsgvje" path="res://pixil-frame-0 - 2024-03-01T112040.122.png" id="15_jq3rx"]
+[ext_resource type="AudioStream" uid="uid://dlchieor3h4fm" path="res://x2mate.com - Rody rich -ricch forever Instrumental (128 kbps).mp3" id="15_pmlmx"]
+[ext_resource type="Shader" path="res://color_depth.gdshader" id="16_kh40h"]
+[ext_resource type="Shader" path="res://vibranto.gdshader" id="17_m4q3g"]
+[ext_resource type="Shader" path="res://highlow.gdshader" id="18_cixg8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_itgx7"]
+shader = ExtResource("13_2tjfb")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjlx0"]
+shader = ExtResource("16_kh40h")
+shader_parameter/resX = 256
+shader_parameter/resY = 256
+shader_parameter/rgb255 = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1mi0"]
+shader = ExtResource("17_m4q3g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ooy6"]
+shader = ExtResource("18_cixg8")
+shader_parameter/resX = 64
+shader_parameter/resY = 64
+shader_parameter/rgb255 = Vector3(0.100392, 0.100392, 0.100392)
+
+[node name="pause_menu" type="Control"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i0710")
+
+[node name="Options" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabContainer" type="TabContainer" parent="Options"]
+modulate = Color(1, 1, 1, 0.815686)
+top_level = true
+layout_mode = 0
+offset_right = 344.0
+offset_bottom = 106.0
+scale = Vector2(3.33, 3.33)
+theme_override_fonts/font = ExtResource("8_8bnr6")
+tab_alignment = 1
+
+[node name="General" type="Button" parent="Options/TabContainer"]
+layout_mode = 2
+
+[node name="Video" type="Button" parent="Options/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Audio" type="Button" parent="Options/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Video" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_eb7up")
+
+[node name="videolabels" type="GridContainer" parent="Video"]
+top_level = true
+layout_mode = 0
+offset_left = 67.0
+offset_top = 154.0
+offset_right = 176.0
+offset_bottom = 210.0
+scale = Vector2(3.21, 3.21)
+
+[node name="Display_mode" type="Label" parent="Video/videolabels"]
+layout_mode = 2
+text = "Display Mode:"
+
+[node name="Optimization" type="Label" parent="Video/videolabels"]
+layout_mode = 2
+text = "Optimization:"
+
+[node name="Shaders" type="Label" parent="Video/videolabels"]
+layout_mode = 2
+text = "Shaders:
+"
+
+[node name="optimize" type="OptionButton" parent="Video"]
+top_level = true
+layout_mode = 2
+offset_left = 481.0
+offset_top = 268.0
+offset_right = 581.0
+offset_bottom = 299.0
+scale = Vector2(2.115, 2.115)
+item_count = 2
+popup/item_0/text = "Disable"
+popup/item_0/id = 0
+popup/item_1/text = "Enable"
+popup/item_1/id = 1
+
+[node name="GridContainer" type="GridContainer" parent="Video"]
+top_level = true
+layout_mode = 0
+offset_left = 481.0
+offset_top = 128.81
+offset_right = 669.0
+offset_bottom = 256.81
+
+[node name="Button2" type="Button" parent="Video/GridContainer"]
+layout_mode = 2
+icon = ExtResource("12_6o371")
+flat = true
+
+[node name="video_settings" type="GridContainer" parent="Video"]
+top_level = true
+layout_mode = 0
+offset_left = 417.0
+offset_top = 114.0
+offset_right = 545.0
+offset_bottom = 162.0
+scale = Vector2(3.21, 3.21)
+
+[node name="Button" type="Button" parent="Video/video_settings"]
+layout_mode = 2
+icon = ExtResource("12_dwmg1")
+flat = true
+
+[node name="shaders" type="OptionButton" parent="Video"]
+top_level = true
+layout_mode = 0
+offset_left = 481.0
+offset_top = 353.0
+offset_right = 581.0
+offset_bottom = 384.0
+scale = Vector2(2.115, 2.115)
+
+[node name="general_settings" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="video_settings" type="GridContainer" parent="general_settings"]
+top_level = true
+layout_mode = 0
+offset_left = 454.0
+offset_top = 239.0
+offset_right = 610.0
+offset_bottom = 375.0
+scale = Vector2(3.21, 3.21)
+
+[node name="Button" type="Button" parent="general_settings/video_settings"]
+layout_mode = 2
+text = "Normal"
+
+[node name="videolabels" type="GridContainer" parent="general_settings"]
+top_level = true
+layout_mode = 0
+offset_left = 67.0
+offset_top = 250.0
+offset_right = 176.0
+offset_bottom = 306.0
+scale = Vector2(3.21, 3.21)
+
+[node name="Display_mode" type="Label" parent="general_settings/videolabels"]
+layout_mode = 2
+text = "Camera Zoom"
+
+[node name="audio_settings" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_71afq")
+
+[node name="GridContainer" type="GridContainer" parent="audio_settings"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 110.03
+offset_bottom = 286.0
+scale = Vector2(3.21, 3.21)
+
+[node name="Master_audio" type="Label" parent="audio_settings"]
+top_level = true
+layout_mode = 2
+offset_left = 383.0
+offset_top = 154.0
+offset_right = 487.0
+offset_bottom = 180.0
+scale = Vector2(3.21, 3.21)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Master Audio"
+
+[node name="Sound_effects" type="Label" parent="audio_settings"]
+top_level = true
+layout_mode = 2
+offset_left = 383.0
+offset_top = 283.0
+offset_right = 492.0
+offset_bottom = 309.0
+scale = Vector2(3.21, 3.21)
+text = "Sound Effects"
+
+[node name="Music_volumed" type="Label" parent="audio_settings"]
+layout_mode = 2
+offset_left = 383.0
+offset_top = 447.0
+offset_right = 492.0
+offset_bottom = 473.0
+scale = Vector2(3.21, 3.21)
+text = "Music Volume
+"
+
+[node name="Master_slider" type="HSlider" parent="audio_settings"]
+modulate = Color(0.341176, 0.341176, 0.341176, 1)
+top_level = true
+layout_mode = 0
+offset_left = 383.0
+offset_top = 252.0
+offset_right = 733.0
+offset_bottom = 268.0
+max_value = 1.0
+step = 0.05
+
+[node name="Sound_slider" type="HSlider" parent="audio_settings"]
+modulate = Color(0.341176, 0.341176, 0.341176, 1)
+top_level = true
+layout_mode = 0
+offset_left = 383.0
+offset_top = 375.0
+offset_right = 733.0
+offset_bottom = 391.0
+step = 0.05
+
+[node name="Music_slider" type="HSlider" parent="audio_settings"]
+modulate = Color(0.341176, 0.341176, 0.341176, 1)
+top_level = true
+layout_mode = 0
+offset_left = 383.0
+offset_top = 546.0
+offset_right = 733.0
+offset_bottom = 562.0
+step = 0.05
+
+[node name="crt" type="SubViewportContainer" parent="."]
+visible = false
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_itgx7")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="crt"]
+handle_input_locally = false
+size = Vector2i(1152, 647)
+render_target_update_mode = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_pmlmx")
+bus = &"Music"
+
+[node name="Save_button" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1015.0
+offset_top = 481.0
+offset_right = 1055.0
+offset_bottom = 521.0
+scale = Vector2(4.055, 4.055)
+
+[node name="TextureRect" type="TextureRect" parent="Save_button"]
+visible = false
+modulate = Color(1, 1, 1, 0.639216)
+self_modulate = Color(1, 0.929412, 1, 1)
+show_behind_parent = true
+layout_mode = 2
+texture = ExtResource("6_vbdm1")
+
+[node name="Button" type="Button" parent="Save_button"]
+layout_mode = 2
+icon = ExtResource("7_8mrxv")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="Save_button/Button"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 7.89149
+offset_right = 24.0
+offset_bottom = 31.8915
+color = Color(0.219608, 0.219608, 0.219608, 0.482353)
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="menu" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 208.0
+scale = Vector2(3.165, 3.165)
+
+[node name="Resume" type="Button" parent="Control/menu"]
+layout_mode = 2
+icon = ExtResource("1_848gu")
+flat = true
+
+[node name="Settings" type="Button" parent="Control/menu"]
+layout_mode = 2
+icon = ExtResource("2_ej5ii")
+flat = true
+
+[node name="Credits" type="Button" parent="Control/menu"]
+layout_mode = 2
+icon = ExtResource("4_q4wwa")
+flat = true
+
+[node name="Leave" type="Button" parent="Control/menu"]
+layout_mode = 2
+icon = ExtResource("5_124ry")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="Control/menu"]
+show_behind_parent = true
+layout_mode = 2
+color = Color(0.211765, 0.211765, 0.211765, 0.345098)
+
+[node name="PanelContainer" type="GridContainer" parent="Control/menu"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/menu/PanelContainer"]
+top_level = true
+position = Vector2(772, 92)
+scale = Vector2(3.915, 3.915)
+texture = ExtResource("15_jq3rx")
+
+[node name="color_redefinition" type="SubViewportContainer" parent="."]
+visible = false
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_sjlx0")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="color_redefinition"]
+handle_input_locally = false
+size = Vector2i(1137, 647)
+render_target_update_mode = 0
+
+[node name="vibranto" type="SubViewportContainer" parent="."]
+visible = false
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_w1mi0")
+layout_mode = 0
+offset_right = 1146.0
+offset_bottom = 643.0
+
+[node name="SubViewport" type="SubViewport" parent="vibranto"]
+handle_input_locally = false
+size = Vector2i(1157, 657)
+render_target_update_mode = 0
+
+[node name="background" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="background"]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="background/CanvasLayer"]
+show_behind_parent = true
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.101961, 0.101961, 0.101961, 0.34902)
+
+[node name="higher_quality_low_quality" type="SubViewportContainer" parent="."]
+visible = false
+z_index = -2
+material = SubResource("ShaderMaterial_1ooy6")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="higher_quality_low_quality"]
+handle_input_locally = false
+size = Vector2i(1137, 647)
+render_target_update_mode = 0
+
+[connection signal="pressed" from="Options/TabContainer/General" to="." method="_on_general_pressed"]
+[connection signal="pressed" from="Options/TabContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="Options/TabContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="color_is_optimized" from="Video" to="." method="_on_video_color_is_optimized"]
+[connection signal="shader_activate" from="Video" to="." method="_on_video_shader_activate"]
+[connection signal="shaders_disabled" from="Video" to="." method="_on_video_shaders_disabled"]
+[connection signal="vibranto_activated" from="Video" to="." method="_on_video_vibranto_activated"]
+[connection signal="item_selected" from="Video/optimize" to="Video" method="_on_optimize_item_selected"]
+[connection signal="pressed" from="Video/GridContainer/Button2" to="Video" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Video/video_settings/Button" to="Video" method="_on_button_pressed"]
+[connection signal="item_selected" from="Video/shaders" to="Video" method="_on_shaders_item_selected"]
+[connection signal="value_changed" from="audio_settings/Master_slider" to="audio_settings" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="audio_settings/Sound_slider" to="audio_settings" method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="audio_settings/Music_slider" to="audio_settings" method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="Control/menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/menu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/menu/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Control/menu/Leave" to="." method="_on_leave_pressed"]

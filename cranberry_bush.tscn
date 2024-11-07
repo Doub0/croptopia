@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo84de38rlcqa"]
+
+[ext_resource type="Script" path="res://cranberry_bush.gd" id="1_a2llv"]
+[ext_resource type="Resource" uid="uid://2a3auc1xbk01" path="res://cranberry.tres" id="2_kbfi8"]
+[ext_resource type="Texture2D" uid="uid://dfkfgdsjea0j5" path="res://cranberry.png" id="2_q8jeo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na5ad"]
+atlas = ExtResource("2_q8jeo")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rmko"]
+atlas = ExtResource("2_q8jeo")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjkb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na5ad")
+}],
+"loop": true,
+"name": &"cranberry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rmko")
+}],
+"loop": true,
+"name": &"no_cranberry",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fuq2w"]
+radius = 16.1245
+
+[node name="cranberry_bush" type="Node2D"]
+script = ExtResource("1_a2llv")
+item = ExtResource("2_kbfi8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rjkb7")
+animation = &"cranberry"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_fuq2w")
+
+[node name="growth_timer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout"]

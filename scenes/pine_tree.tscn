@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://crbpv4lea0q2f"]
+
+[ext_resource type="Script" path="res://pine_tree.gd" id="1_6ane1"]
+[ext_resource type="Texture2D" uid="uid://gp50do6lyxsy" path="res://assets/spruce.png" id="2_mi2yx"]
+[ext_resource type="Texture2D" uid="uid://hpdwi6mvq23o" path="res://assets/stub.png" id="4_qeknx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bac5f"]
+atlas = ExtResource("2_mi2yx")
+region = Rect2(0, 0, 40, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4fd3"]
+atlas = ExtResource("2_mi2yx")
+region = Rect2(40, 0, 40, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8w2p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bac5f")
+}],
+"loop": true,
+"name": &"no pinecones",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4fd3")
+}],
+"loop": true,
+"name": &"pinecones",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qeknx")
+}],
+"loop": true,
+"name": &"stub",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awraw"]
+radius = 25.1794
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cx0jb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_easfw"]
+bg_color = Color(0, 0.721569, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[node name="pine_tree" type="Node2D"]
+script = ExtResource("1_6ane1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.764, 0.764)
+sprite_frames = SubResource("SpriteFrames_c8w2p")
+animation = &"pinecones"
+
+[node name="pickable_area" type="Area2D" parent="."]
+visible = false
+position = Vector2(-1, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+scale = Vector2(0.445, 0.445)
+shape = SubResource("CircleShape2D_awraw")
+
+[node name="growth_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+shape = SubResource("CircleShape2D_cx0jb")
+
+[node name="pine_health_bar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="Panel" parent="pine_health_bar"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_easfw")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered" flags=18]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited" flags=18]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout" flags=18]

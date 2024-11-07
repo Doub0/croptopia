@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c56n4h0k6rwge"]
+
+[ext_resource type="Texture2D" uid="uid://dous15mgd5wsn" path="res://assets/sr2db5dfb28b1aws3.png" id="1_7wrqc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3unsh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7wrqc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="house_type_2" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_3unsh")

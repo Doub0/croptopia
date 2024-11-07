@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw05vaghn12rj"]
+
+[ext_resource type="Texture2D" uid="uid://cilin7h7an17" path="res://scenes/pixil-frame-0 - 2024-02-12T191032.739.png" id="1_xc5fs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_te1k6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xc5fs")
+}],
+"loop": true,
+"name": &"tall",
+"speed": 5.0
+}]
+
+[node name="tall_bush_spruce" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_te1k6")
+animation = &"tall"

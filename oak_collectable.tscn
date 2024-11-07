@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://ydfl3fehd0jn"]
+
+[ext_resource type="Script" path="res://oak_collectable.gd" id="1_nb25i"]
+[ext_resource type="Texture2D" uid="uid://d2jyuyt2bbiko" path="res://pixil-frame-0 - 2024-01-16T184952.646.png" id="2_yqrqj"]
+
+[sub_resource type="Animation" id="Animation_jito0"]
+resource_name = "fade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_1dixj"]
+resource_name = "fallingfromtree"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.820305]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wt7c"]
+_data = {
+"fade": SubResource("Animation_jito0"),
+"fallingfromtree": SubResource("Animation_1dixj")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nh4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yqrqj")
+}],
+"loop": true,
+"name": &"oak",
+"speed": 5.0
+}]
+
+[node name="oak_collectable" type="StaticBody2D"]
+script = ExtResource("1_nb25i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4wt7c")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1nh4v")
+animation = &"oak"

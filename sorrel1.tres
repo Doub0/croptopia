@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cqts4mpgu4mby"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_xddqn"]
+[ext_resource type="Texture2D" uid="uid://bkt3hyudvw28o" path="res://pixil-frame-0 - 2024-01-16T165950.729.png" id="2_c7f6n"]
+
+[resource]
+resource_name = "sorrel"
+script = ExtResource("1_xddqn")
+name = "Sorrel"
+texture = ExtResource("2_c7f6n")

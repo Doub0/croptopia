@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b1bwcmrpatd3e"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_pjuto"]
+[ext_resource type="Texture2D" uid="uid://cvjereh3w7wru" path="res://assets/spruce_log.png" id="2_dbbmv"]
+
+[resource]
+script = ExtResource("1_pjuto")
+name = "Oak Log"
+texture = ExtResource("2_dbbmv")

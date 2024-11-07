@@ -1,0 +1,1681 @@
+[gd_scene load_steps=52 format=3 uid="uid://ckp00364ahv2y"]
+
+[ext_resource type="Script" path="res://phillip_merchant.gd" id="1_f5oa3"]
+[ext_resource type="Texture2D" uid="uid://05c3q13iufuy" path="res://dialouge/pixil-frame-0 - 2024-02-25T150615.373.png" id="1_t0f44"]
+[ext_resource type="Texture2D" uid="uid://dl5g4spbmtq3u" path="res://assets/iron_pickaxe.png" id="3_tqrig"]
+[ext_resource type="Texture2D" uid="uid://c4ipwv3k8c6e2" path="res://assets/pixil-frame-0 - 2024-10-09T192452.095.png" id="4_m8cf4"]
+[ext_resource type="Texture2D" uid="uid://dq5bghvitjfnq" path="res://assets/seed_packet_neutral.png" id="5_viejf"]
+[ext_resource type="FontFile" uid="uid://uynswcck0os1" path="res://fonts/pixelated.ttf" id="6_i51uw"]
+[ext_resource type="Script" path="res://economy_manager.gd" id="6_juw7e"]
+[ext_resource type="Shader" path="res://assets/shadow.gdshader" id="7_vm4qb"]
+[ext_resource type="FontFile" uid="uid://durc11sjou4jb" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="8_83yco"]
+[ext_resource type="FontFile" uid="uid://migbntvdj1ws" path="res://fonts/VCR_OSD_MONO_1.001.ttf-92b798ad9789991a513c2da11fbc8ed7.fontdata" id="9_i5e42"]
+[ext_resource type="Texture2D" uid="uid://3ey3q1k55iuf" path="res://assets/pixil-frame-0 - 2024-10-09T195228.731.png" id="10_148oq"]
+[ext_resource type="StyleBox" uid="uid://c03lci6tbwgdf" path="res://white_frame.tres" id="11_fme33"]
+[ext_resource type="Texture2D" uid="uid://c7ujwc2of3wuv" path="res://pixil-frame-0 - 2024-01-16T123135.698.png" id="12_gjr10"]
+[ext_resource type="Texture2D" uid="uid://6rmgyxypplsl" path="res://assets/usd_coin.png" id="13_xiqeu"]
+[ext_resource type="Texture2D" uid="uid://ckgep75t6jyli" path="res://assets/good_economy.png" id="14_vc4bo"]
+[ext_resource type="Texture2D" uid="uid://1806i7g2riof" path="res://assets/michael_business_walk.png" id="15_v1psq"]
+[ext_resource type="Texture2D" uid="uid://cvxhq3kga3pe1" path="res://assets/decent_economy.png" id="16_xfwcg"]
+[ext_resource type="Texture2D" uid="uid://b31ymsoe5kjrj" path="res://assets/bad_economy.png" id="17_iinc6"]
+[ext_resource type="Texture2D" uid="uid://bwmm11gv6y1yr" path="res://assets/clock_time_passed.png" id="18_mfu4j"]
+[ext_resource type="Texture2D" uid="uid://boapfhst550ye" path="res://assets/red_arrow.png" id="19_m0nml"]
+[ext_resource type="Texture2D" uid="uid://cv18uihbpgsai" path="res://assets/profit.png" id="20_4o71p"]
+[ext_resource type="Texture2D" uid="uid://bp7xf1pmiviqu" path="res://assets/flex.png" id="21_rqrtx"]
+[ext_resource type="AudioStream" uid="uid://6apf8q65dxat" path="res://assets/delete_later_aka_fnaf_music.ogg" id="23_ya550"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn3uw"]
+bg_color = Color(0.290196, 0.666667, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.196078, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfq0e"]
+bg_color = Color(0.172549, 0.380392, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nd11"]
+bg_color = Color(0.396078, 0, 0.6, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysow1"]
+bg_color = Color(0.835294, 0.490196, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k38dm"]
+bg_color = Color(0.223529, 0.74902, 0.498039, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mcwqv"]
+texture = ExtResource("3_tqrig")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_no3no"]
+texture = ExtResource("4_m8cf4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rs4l1"]
+texture = ExtResource("5_viejf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_beelm"]
+bg_color = Color(0.172549, 0.380392, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i041x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsauq"]
+line_spacing = 0.0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jk30"]
+bg_color = Color(0.839216, 0.513726, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.117647, 0.00392157, 0.207843, 1)
+corner_radius_top_left = 4
+corner_radius_bottom_right = 4
+anti_aliasing = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqdbh"]
+shader = ExtResource("7_vm4qb")
+shader_parameter/amount = 10
+shader_parameter/borderScale = 2.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/color = null
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/debug = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvf3i"]
+content_margin_left = 25.0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4dhf"]
+content_margin_left = 25.0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vw2p8"]
+bg_color = Color(0.721569, 0, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5iljb"]
+bg_color = Color(0, 0, 0, 0.52549)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2c4q"]
+bg_color = Color(0.368627, 0.407843, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c360g"]
+bg_color = Color(0.156863, 0.00392157, 0.266667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_size = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lkrlf"]
+texture = ExtResource("15_v1psq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8shh"]
+texture = ExtResource("16_xfwcg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ele51"]
+texture = ExtResource("17_iinc6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n855s"]
+texture = ExtResource("18_mfu4j")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bd1i"]
+bg_color = Color(0.862745, 0.658824, 0.215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.223529, 0.0509804, 0.027451, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1ida"]
+texture = ExtResource("19_m0nml")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ha6yq"]
+texture = ExtResource("19_m0nml")
+modulate_color = Color(0.87451, 0.87451, 0.87451, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5xi8"]
+texture = ExtResource("20_4o71p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xu6im"]
+texture = ExtResource("21_rqrtx")
+
+[node name="phillip_merchant" type="Node2D"]
+script = ExtResource("1_f5oa3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t0f44")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(2.5, 2.5)
+transform = Transform2D(2.5, 0, 0, 2.5, 0, 0)
+
+[node name="shop_ui" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 54.0
+offset_top = 26.8
+offset_right = 94.0
+offset_bottom = 66.8
+
+[node name="background" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wn3uw")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 532.75
+offset_right = 572.75
+offset_bottom = 101.0
+
+[node name="redbane_purchase_button" type="Button" parent="CanvasLayer/shop_ui/GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="chive_purchase_button" type="Button" parent="CanvasLayer/shop_ui/GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="pinecone_purchase_button" type="Button" parent="CanvasLayer/shop_ui/GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 419.75
+offset_top = 8.0
+offset_right = 558.75
+offset_bottom = 109.0
+scale = Vector2(0.89, 0.89)
+
+[node name="Label2" type="Label" parent="CanvasLayer/shop_ui/GridContainer2"]
+layout_mode = 2
+text = "/10 Redbaneberry"
+
+[node name="Label3" type="Label" parent="CanvasLayer/shop_ui/GridContainer2"]
+layout_mode = 2
+text = "/10 Chives"
+
+[node name="Label4" type="Label" parent="CanvasLayer/shop_ui/GridContainer2"]
+layout_mode = 2
+text = "/15 Pinecones"
+
+[node name="GridContainer3" type="GridContainer" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 557.75
+offset_top = 4.0
+offset_right = 690.75
+offset_bottom = 105.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/shop_ui/GridContainer3"]
+layout_mode = 2
+text = "1 Dollar"
+
+[node name="Label3" type="Label" parent="CanvasLayer/shop_ui/GridContainer3"]
+layout_mode = 2
+text = "1 Dollar"
+
+[node name="Label4" type="Label" parent="CanvasLayer/shop_ui/GridContainer3"]
+layout_mode = 2
+text = "1 Dollar"
+
+[node name="redbane_count" type="Label" parent="CanvasLayer/shop_ui"]
+layout_mode = 2
+offset_left = 407.75
+offset_top = 8.0
+offset_right = 540.75
+offset_bottom = 34.0
+scale = Vector2(0.9, 0.9)
+text = "0"
+
+[node name="chive_count" type="Label" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 407.75
+offset_top = 35.0
+offset_right = 540.75
+offset_bottom = 61.0
+scale = Vector2(0.9, 0.9)
+text = "0"
+
+[node name="pinecone_count" type="Label" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 407.75
+offset_top = 61.0
+offset_right = 540.75
+offset_bottom = 87.0
+scale = Vector2(0.9, 0.9)
+text = "0"
+
+[node name="Container" type="Container" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="category_frame" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 135.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pfq0e")
+
+[node name="tool_frame" type="Panel" parent="CanvasLayer/shop_ui/category_frame"]
+layout_mode = 0
+offset_left = 3.5
+offset_top = 2.0
+offset_right = 43.5
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0nd11")
+
+[node name="material_frame" type="Panel" parent="CanvasLayer/shop_ui/category_frame"]
+layout_mode = 0
+offset_left = 45.75
+offset_top = 2.0
+offset_right = 85.75
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ysow1")
+
+[node name="seed_frame" type="Panel" parent="CanvasLayer/shop_ui/category_frame"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 2.0
+offset_right = 128.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k38dm")
+
+[node name="tool_button" type="Panel" parent="CanvasLayer/shop_ui/category_frame"]
+layout_mode = 0
+offset_left = 3.5
+offset_top = 2.0
+offset_right = 43.5
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mcwqv")
+
+[node name="material_button" type="Panel" parent="CanvasLayer/shop_ui/category_frame"]
+layout_mode = 0
+offset_left = 45.75
+offset_top = 2.0
+offset_right = 85.75
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_no3no")
+
+[node name="seed_button" type="Panel" parent="CanvasLayer/shop_ui/category_frame"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 2.0
+offset_right = 128.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rs4l1")
+
+[node name="product_frame" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 4.0
+offset_right = 330.0
+offset_bottom = 167.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_beelm")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/shop_ui/product_frame"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 6.25
+offset_top = 8.5
+offset_right = 193.25
+offset_bottom = 171.5
+columns = 5
+
+[node name="shop_slot1" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_1_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot1"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot1"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot2" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_2_button2" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot2"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot2"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot3" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_3_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot3"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot3"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot4" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_4_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot4"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot4"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot5" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_5_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot5"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot5"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot6" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_6_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot6"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot6"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot7" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_7_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot7"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot7"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot8" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_8_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot8"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot8"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot9" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_9_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot9"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot9"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot10" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_10_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot10"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot10"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot11" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_11_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot11"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot11"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot12" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_12_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot12"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot12"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot13" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_13_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot13"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot13"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot14" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_14_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot14"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot14"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot15" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_15_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot15"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot15"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot16" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_16_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot16"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot16"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot17" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_17_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot17"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot17"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot18" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_18_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot18"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot18"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot19" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_19_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot19"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot19"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="shop_slot20" type="Panel" parent="CanvasLayer/shop_ui/product_frame/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="shop_slot_20_button" type="Button" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot20"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="shop_slot_sprite" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot20"]
+position = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_i041x")
+
+[node name="economy_manager" type="Node" parent="CanvasLayer/shop_ui/product_frame"]
+script = ExtResource("6_juw7e")
+
+[node name="price" type="Label" parent="CanvasLayer/shop_ui/product_frame/economy_manager"]
+offset_left = 33.6
+offset_top = 155.2
+offset_right = 185.6
+offset_bottom = 191.2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "1"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="demand_status_icon" type="Sprite2D" parent="CanvasLayer/shop_ui/product_frame/economy_manager"]
+position = Vector2(172, 159.6)
+scale = Vector2(0.465, 0.465)
+texture = ExtResource("14_vc4bo")
+
+[node name="demand_status_message" type="Label" parent="CanvasLayer/shop_ui/product_frame/economy_manager"]
+offset_left = 167.5
+offset_top = 166.8
+offset_right = 207.5
+offset_bottom = 189.8
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "HIGH"
+
+[node name="Title_Panel" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -17.0
+offset_right = 223.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7jk30")
+
+[node name="Shop_Title" type="Label" parent="CanvasLayer/shop_ui/Title_Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.75
+offset_right = 135.0
+offset_bottom = 29.75
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Phillip's Shop"
+
+[node name="sell_buy_toggle_button" type="CheckButton" parent="CanvasLayer/shop_ui"]
+material = SubResource("ShaderMaterial_gqdbh")
+layout_mode = 0
+offset_left = 71.0
+offset_top = 50.0
+offset_right = 115.0
+offset_bottom = 74.0
+scale = Vector2(0.31, 0.31)
+
+[node name="Sell_Buy" type="Label" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 20.5
+offset_top = 50.0
+offset_right = 80.5
+offset_bottom = 71.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Sell/Buy"
+
+[node name="page_indicator_frame" type="GridContainer" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 165.0
+offset_right = 148.0
+offset_bottom = 212.0
+scale = Vector2(0.505, 0.505)
+columns = 3
+
+[node name="previous_page" type="Button" parent="CanvasLayer/shop_ui/page_indicator_frame"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_83yco")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cvf3i")
+text = "<"
+
+[node name="page_indicator" type="Label" parent="CanvasLayer/shop_ui/page_indicator_frame"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_i5e42")
+theme_override_font_sizes/font_size = 41
+text = "1/5"
+
+[node name="next_page" type="Button" parent="CanvasLayer/shop_ui/page_indicator_frame"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4dhf")
+text = ">"
+
+[node name="buy_all" type="Button" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 90.75
+offset_top = 155.0
+offset_right = 130.75
+offset_bottom = 195.0
+scale = Vector2(0.852, 0.852)
+icon = ExtResource("10_148oq")
+flat = true
+
+[node name="item_icon" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 64.0
+offset_right = 45.0
+offset_bottom = 104.0
+theme_override_styles/panel = ExtResource("11_fme33")
+
+[node name="info_icon" type="Sprite2D" parent="CanvasLayer/shop_ui/item_icon"]
+position = Vector2(18.75, 20.5)
+texture = ExtResource("12_gjr10")
+
+[node name="info_frame" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 64.0
+offset_right = 134.0
+offset_bottom = 147.0
+theme_override_styles/panel = ExtResource("11_fme33")
+
+[node name="info_text" type="Label" parent="CanvasLayer/shop_ui/info_frame"]
+layout_mode = 0
+offset_left = 2.5
+offset_top = 4.5
+offset_right = 140.5
+offset_bottom = 67.5
+scale = Vector2(0.565, 0.565)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Name: Red Baneberry
+Use: Food or crafting
+Rarity: Common"
+
+[node name="sell_frame" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 101.0
+offset_right = 43.97
+offset_bottom = 147.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vw2p8")
+
+[node name="usd_coin" type="Button" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 8.4
+offset_top = 98.0
+offset_right = 48.4
+offset_bottom = 138.0
+scale = Vector2(0.85, 0.85)
+icon = ExtResource("13_xiqeu")
+flat = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_ui/usd_coin"]
+show_behind_parent = true
+z_index = -1
+layout_mode = 0
+offset_left = 7.5294
+offset_top = 5.64705
+offset_right = 30.5294
+offset_bottom = 32.647
+theme_override_styles/panel = SubResource("StyleBoxFlat_5iljb")
+
+[node name="currency" type="Label" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = -6.8
+offset_top = 128.4
+offset_right = 145.2
+offset_bottom = 164.4
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "USD"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="item_amount" type="Label" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_top = 137.5
+offset_right = 152.0
+offset_bottom = 173.5
+scale = Vector2(0.34, 0.34)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "/ 8 Redbaneberry"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="demand_frame" type="Panel" parent="CanvasLayer/shop_ui"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 114.5
+offset_right = 134.0
+offset_bottom = 146.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2c4q")
+
+[node name="demand_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 2.25
+offset_right = 130.0
+offset_bottom = 38.25
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Demand:"
+horizontal_alignment = 1
+
+[node name="demand_info_button" type="Button" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = 20.5
+offset_top = 22.0
+offset_right = 60.5
+offset_bottom = 53.0
+scale = Vector2(0.35, 0.35)
+text = "🛈"
+flat = true
+
+[node name="ui_page_1" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -314.75
+offset_top = 70.75
+offset_right = -209.75
+offset_bottom = 198.75
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_1"]
+layout_mode = 0
+offset_left = 3.5
+offset_right = 141.5
+offset_bottom = 63.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Demand: What is it?
+"
+
+[node name="demand_info_UI_text" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_1"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 18.25
+offset_right = 150.5
+offset_bottom = 186.25
+scale = Vector2(0.565, 0.565)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Demand is one of Croptopia's most unique mechanics, being based off the real economy, where value changes by the minutes, and appearing to be random.
+"
+autowrap_mode = 2
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_1"]
+layout_mode = 0
+offset_left = 84.25
+offset_top = 96.25
+offset_right = 102.25
+offset_bottom = 127.25
+scale = Vector2(0.735, 0.735)
+text = ">"
+
+[node name="ui_page_4" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -478.0
+offset_top = -102.0
+offset_right = -333.0
+offset_bottom = 63.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_4"]
+layout_mode = 0
+offset_left = 3.5
+offset_right = 141.5
+offset_bottom = 63.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "To put it simply..."
+
+[node name="demand_info_UI_text" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_4"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 270.0
+scale = Vector2(0.565, 0.565)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "For every day that passes the global economy in the game changes, the item picked for demand is random, and will get assigned a random new value. However, don't worry about this affecting you too much as the levels of inflation only rise by a decimal usually, but since this is random, it could sometimes skyrocket, so make sure to sell out on cheap days."
+autowrap_mode = 2
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_4"]
+layout_mode = 0
+offset_left = 127.5
+offset_top = 142.5
+offset_right = 145.5
+offset_bottom = 173.5
+scale = Vector2(0.735, 0.735)
+text = ">"
+
+[node name="ui_page_5" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -643.5
+offset_top = -101.75
+offset_right = -498.5
+offset_bottom = 63.25
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_5"]
+layout_mode = 0
+offset_left = 3.5
+offset_right = 141.5
+offset_bottom = 63.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Thinking-long term"
+
+[node name="demand_info_UI_text" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_5"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 270.0
+scale = Vector2(0.565, 0.565)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "You may be wondering, how do you make good economical decisions?
+It's easy, think long-term.
+Because of the changing tides
+in the economy every day,
+you may be deceived by
+low prices and encounter
+even lower prices.
+I recommend you always wait to sell for when products get the cheapest, and then sell out."
+autowrap_mode = 2
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_5"]
+layout_mode = 0
+offset_left = 127.5
+offset_top = 142.5
+offset_right = 145.5
+offset_bottom = 173.5
+scale = Vector2(0.735, 0.735)
+text = ">"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_5"]
+layout_mode = 0
+offset_left = 101.75
+offset_top = 77.25
+offset_right = 141.75
+offset_bottom = 117.25
+theme_override_styles/panel = SubResource("StyleBoxTexture_lkrlf")
+
+[node name="ui_page_2" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -436.75
+offset_top = 70.75
+offset_right = -331.75
+offset_bottom = 198.75
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 3.5
+offset_right = 141.5
+offset_bottom = 63.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Demand: What is it?
+"
+
+[node name="item_icon" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 3.5
+offset_top = 18.0
+offset_right = 43.5
+offset_bottom = 58.0
+theme_override_styles/panel = ExtResource("11_fme33")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/item_icon"]
+position = Vector2(18.75, 20.5)
+texture = ExtResource("12_gjr10")
+
+[node name="item_icon2" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 17.75
+offset_right = 103.0
+offset_bottom = 57.75
+theme_override_styles/panel = ExtResource("11_fme33")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/item_icon2"]
+position = Vector2(18.75, 20.5)
+texture = ExtResource("12_gjr10")
+
+[node name="demand_frame" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 101.75
+offset_right = 36.0
+offset_bottom = 127.75
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2c4q")
+
+[node name="decent_economy" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame"]
+layout_mode = 0
+offset_left = 5.75
+offset_top = 5.75
+offset_right = 19.75
+offset_bottom = 19.75
+theme_override_styles/panel = SubResource("StyleBoxTexture_w8shh")
+
+[node name="sell_frame" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame"]
+layout_mode = 0
+offset_left = -5.75
+offset_top = -44.0
+offset_right = 33.22
+offset_bottom = 2.00002
+theme_override_styles/panel = SubResource("StyleBoxFlat_vw2p8")
+
+[node name="usd_coin" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame"]
+layout_mode = 0
+offset_left = -3.00003
+offset_top = -44.5
+offset_right = 37.0
+offset_bottom = -4.49999
+scale = Vector2(0.85, 0.85)
+icon = ExtResource("13_xiqeu")
+flat = true
+
+[node name="price" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -16.75
+offset_right = 128.0
+offset_bottom = 19.25
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "1 USD"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="item_amount" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame"]
+layout_mode = 0
+offset_left = -10.75
+offset_top = -7.49994
+offset_right = 141.25
+offset_bottom = 28.5001
+scale = Vector2(0.34, 0.34)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "/ 8 Redbaneberry"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="demand_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame"]
+layout_mode = 0
+offset_left = -10.75
+offset_top = 1.25
+offset_right = 141.25
+offset_bottom = 37.25
+scale = Vector2(0.32, 0.32)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Demand:"
+horizontal_alignment = 1
+
+[node name="demand_status_message" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame"]
+layout_mode = 0
+offset_left = 6.75
+offset_top = 20.0
+offset_right = 62.75
+offset_bottom = 43.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0, 0.952941, 0.87451, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "NORMAL"
+
+[node name="demand_frame2" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 101.75
+offset_right = 95.0
+offset_bottom = 127.75
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2c4q")
+
+[node name="bad_economy" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = 5.75
+offset_top = 5.75
+offset_right = 19.75
+offset_bottom = 19.75
+theme_override_styles/panel = SubResource("StyleBoxTexture_ele51")
+
+[node name="demand_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = -10.75
+offset_top = 1.25
+offset_right = 141.25
+offset_bottom = 37.25
+scale = Vector2(0.32, 0.32)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Demand:"
+horizontal_alignment = 1
+
+[node name="demand_status_message" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = 5.75
+offset_top = 20.0
+offset_right = 61.75
+offset_bottom = 43.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.94902, 0.0941176, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "LOW"
+horizontal_alignment = 1
+
+[node name="sell_frame" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -44.0
+offset_right = 32.97
+offset_bottom = 2.00003
+theme_override_styles/panel = SubResource("StyleBoxFlat_vw2p8")
+
+[node name="usd_coin" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = -3.24998
+offset_top = -44.5
+offset_right = 36.75
+offset_bottom = -4.49996
+scale = Vector2(0.85, 0.85)
+icon = ExtResource("13_xiqeu")
+flat = true
+
+[node name="price" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = -24.25
+offset_top = -16.75
+offset_right = 127.75
+offset_bottom = 19.25
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "0.5 USD"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="item_amount" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = -11.0001
+offset_top = -7.49991
+offset_right = 141.0
+offset_bottom = 28.5001
+scale = Vector2(0.34, 0.34)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "/ 8 Redbaneberry"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/demand_frame2"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -68.5
+offset_right = 13.0
+offset_bottom = -28.5
+scale = Vector2(0.591, 0.585)
+theme_override_styles/panel = SubResource("StyleBoxTexture_n855s")
+
+[node name="day_1" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 14.25
+offset_top = 13.0
+offset_right = 34.25
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0bd1i")
+
+[node name="day_label" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/day_1"]
+layout_mode = 0
+offset_left = 4.25
+offset_right = 44.25
+offset_bottom = 23.0
+scale = Vector2(0.31, 0.31)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Day 1"
+
+[node name="day_2" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 73.25
+offset_top = 13.0
+offset_right = 93.25
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0bd1i")
+
+[node name="day_label" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2/day_2"]
+layout_mode = 0
+offset_left = 4.25
+offset_right = 44.25
+offset_bottom = 23.0
+scale = Vector2(0.31, 0.31)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Day 2
+"
+
+[node name="red_arrow" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 44.75
+offset_top = 62.75
+offset_right = 60.75
+offset_bottom = 78.75
+theme_override_styles/panel = SubResource("StyleBoxTexture_l1ida")
+
+[node name="lowered_prices" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 99.75
+offset_top = 86.75
+offset_right = 106.75
+offset_bottom = 93.75
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxTexture_ha6yq")
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_2"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 103.75
+offset_right = 113.0
+offset_bottom = 134.75
+scale = Vector2(0.455, 0.455)
+text = ">"
+
+[node name="ui_page_3" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -562.25
+offset_top = 70.75
+offset_right = -457.25
+offset_bottom = 198.75
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 3.5
+offset_right = 141.5
+offset_bottom = 63.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "However...
+"
+
+[node name="item_icon2" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 17.75
+offset_right = 103.0
+offset_bottom = 57.75
+theme_override_styles/panel = ExtResource("11_fme33")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/item_icon2"]
+position = Vector2(18.75, 20.5)
+texture = ExtResource("12_gjr10")
+
+[node name="demand_frame2" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 101.75
+offset_right = 95.0
+offset_bottom = 127.75
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2c4q")
+
+[node name="bad_economy" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = 5.75
+offset_top = 5.75
+offset_right = 19.75
+offset_bottom = 19.75
+theme_override_styles/panel = SubResource("StyleBoxTexture_ele51")
+
+[node name="demand_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = -10.75
+offset_top = 1.25
+offset_right = 141.25
+offset_bottom = 37.25
+scale = Vector2(0.32, 0.32)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Demand:"
+horizontal_alignment = 1
+
+[node name="demand_status_message" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = 5.75
+offset_top = 20.0
+offset_right = 61.75
+offset_bottom = 43.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.94902, 0.0941176, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "LOW"
+horizontal_alignment = 1
+
+[node name="sell_frame" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -44.0
+offset_right = 32.97
+offset_bottom = 2.00003
+theme_override_styles/panel = SubResource("StyleBoxFlat_vw2p8")
+
+[node name="usd_coin" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = -3.24998
+offset_top = -44.5
+offset_right = 36.75
+offset_bottom = -4.49996
+scale = Vector2(0.85, 0.85)
+icon = ExtResource("13_xiqeu")
+flat = true
+
+[node name="price" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = -24.25
+offset_top = -16.75
+offset_right = 127.75
+offset_bottom = 19.25
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "0.5 USD"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="item_amount" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = -11.0001
+offset_top = -7.49991
+offset_right = 141.0
+offset_bottom = 28.5001
+scale = Vector2(0.34, 0.34)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "/ 8 Redbaneberry"
+label_settings = SubResource("LabelSettings_bsauq")
+horizontal_alignment = 1
+
+[node name="demand_title2" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/demand_frame2"]
+layout_mode = 0
+offset_left = -33.75
+offset_top = -29.0
+offset_right = 118.25
+offset_bottom = 13.0
+scale = Vector2(0.23, 0.23)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "+10% Chance
+of Rising
+for every
+item bought"
+horizontal_alignment = 1
+
+[node name="day_1" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 14.25
+offset_top = 13.0
+offset_right = 34.25
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0bd1i")
+
+[node name="day_label" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/day_1"]
+layout_mode = 0
+offset_left = 4.25
+offset_right = 44.25
+offset_bottom = 23.0
+scale = Vector2(0.31, 0.31)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Day 1"
+
+[node name="day_2" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 73.25
+offset_top = 13.0
+offset_right = 93.25
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0bd1i")
+
+[node name="day_label" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3/day_2"]
+layout_mode = 0
+offset_left = 4.25
+offset_right = 44.25
+offset_bottom = 23.0
+scale = Vector2(0.31, 0.31)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Day 2
+"
+
+[node name="red_arrow" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 44.75
+offset_top = 62.75
+offset_right = 60.75
+offset_bottom = 78.75
+theme_override_styles/panel = SubResource("StyleBoxTexture_l1ida")
+
+[node name="lowered_prices" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 99.75
+offset_top = 86.75
+offset_right = 106.75
+offset_bottom = 93.75
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxTexture_ha6yq")
+
+[node name="demand_info_UI_text" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 3.5
+offset_top = 22.25
+offset_right = 141.5
+offset_bottom = 211.25
+scale = Vector2(0.525, 0.525)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "However buying
+in bulk can cause
+a significant fall
+in demand as 
+the market
+no longer
+demands the
+product."
+autowrap_mode = 2
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_3"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 103.75
+offset_right = 113.0
+offset_bottom = 134.75
+scale = Vector2(0.455, 0.455)
+text = ">"
+
+[node name="ui_page_6" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -478.0
+offset_top = -293.5
+offset_right = -333.0
+offset_bottom = -128.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_6"]
+layout_mode = 0
+offset_left = 3.5
+offset_right = 141.5
+offset_bottom = 63.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Profit"
+
+[node name="demand_info_UI_text" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_6"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 270.0
+scale = Vector2(0.565, 0.565)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "You may wonder how you should SPEND your money after you earn your profit. 
+I recommend you spend it on the most demanding, rather than what sooths
+your
+interests.
+And don't go too 
+overboard as 
+you have a house to construct too!"
+autowrap_mode = 2
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_6"]
+layout_mode = 0
+offset_left = 127.5
+offset_top = 142.5
+offset_right = 145.5
+offset_bottom = 173.5
+scale = Vector2(0.735, 0.735)
+text = ">"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_6"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 78.0
+offset_right = 142.0
+offset_bottom = 135.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l5xi8")
+
+[node name="ui_page_7" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -644.0
+offset_top = -293.5
+offset_right = -499.0
+offset_bottom = -128.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_7"]
+layout_mode = 0
+offset_left = 3.5
+offset_right = 141.5
+offset_bottom = 63.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Prioritizing"
+
+[node name="demand_info_UI_text" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_7"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 270.0
+scale = Vector2(0.565, 0.565)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "A guide to prioritizing is to focus on buying tools rather than aesthetic/decorational items.
+Tools will speed up your money gain, as you can sell wood from chopping and ores
+from mining.
+
+Seeds may seem like
+a bad investment, but
+in quanity and over longer periods WILL profit you greatly"
+autowrap_mode = 2
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_7"]
+layout_mode = 0
+offset_left = 127.5
+offset_top = 142.5
+offset_right = 145.5
+offset_bottom = 173.5
+scale = Vector2(0.735, 0.735)
+text = ">"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_7"]
+layout_mode = 0
+offset_left = 71.5
+offset_top = 86.25
+offset_right = 128.5
+offset_bottom = 143.25
+rotation = -0.502655
+theme_override_styles/panel = SubResource("StyleBoxTexture_xu6im")
+
+[node name="ui_page_8" type="Panel" parent="CanvasLayer/shop_ui/demand_frame"]
+layout_mode = 0
+offset_left = -562.25
+offset_top = -478.0
+offset_right = -417.25
+offset_bottom = -313.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c360g")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_ui/demand_frame/ui_page_8"]
+layout_mode = 0
+offset_left = 5.25
+offset_top = 14.25
+offset_right = 143.25
+offset_bottom = 165.25
+theme_override_styles/panel = SubResource("StyleBoxTexture_xu6im")
+
+[node name="demand_info_UI_title" type="Label" parent="CanvasLayer/shop_ui/demand_frame/ui_page_8/Panel"]
+layout_mode = 0
+offset_left = 15.25
+offset_top = 74.25
+offset_right = 153.25
+offset_bottom = 137.25
+scale = Vector2(1.06, 1.06)
+theme_override_fonts/font = ExtResource("6_i51uw")
+text = "Happy profitin g!"
+
+[node name="next_UI_page" type="Button" parent="CanvasLayer/shop_ui/demand_frame/ui_page_8"]
+layout_mode = 0
+offset_left = 65.85
+offset_top = 28.7
+offset_right = 83.85
+offset_bottom = 59.7
+scale = Vector2(1.3, 1.3)
+text = ">"
+
+[node name="demand_ui_position" type="Marker2D" parent="CanvasLayer/shop_ui/demand_frame"]
+position = Vector2(40, -86.5)
+
+[node name="demand_ui_out_position" type="Marker2D" parent="CanvasLayer/shop_ui/demand_frame"]
+position = Vector2(-493.841, 116.019)
+
+[node name="music" type="AudioStreamPlayer" parent="CanvasLayer/shop_ui"]
+stream = ExtResource("23_ya550")
+
+[connection signal="baneberry_selected" from="." to="CanvasLayer/shop_ui/product_frame/economy_manager" method="_on_phillip_merchant_baneberry_selected"]
+[connection signal="chive_selected" from="." to="CanvasLayer/shop_ui/product_frame/economy_manager" method="_on_phillip_merchant_chive_selected"]
+[connection signal="elderberry_selected" from="." to="CanvasLayer/shop_ui/product_frame/economy_manager" method="_on_phillip_merchant_elderberry_selected"]
+[connection signal="pinecone_selected" from="." to="CanvasLayer/shop_ui/product_frame/economy_manager" method="_on_phillip_merchant_pinecone_selected"]
+[connection signal="sorrel_selected" from="." to="CanvasLayer/shop_ui/product_frame/economy_manager" method="_on_phillip_merchant_sorrel_selected"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/GridContainer/redbane_purchase_button" to="." method="_on_redbane_purchase_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/GridContainer/chive_purchase_button" to="." method="_on_chive_purchase_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/GridContainer/pinecone_purchase_button" to="." method="_on_pinecone_purchase_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot1/shop_slot_1_button" to="." method="_on_shop_slot_1_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot2/shop_slot_2_button2" to="." method="_on_shop_slot_2_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot3/shop_slot_3_button" to="." method="_on_shop_slot_3_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot4/shop_slot_4_button" to="." method="_on_shop_slot_4_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot5/shop_slot_5_button" to="." method="_on_shop_slot_5_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/product_frame/GridContainer/shop_slot6/shop_slot_6_button" to="." method="_on_shop_slot_6_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/usd_coin" to="." method="_on_usd_coin_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/demand_info_button" to="." method="_on_demand_info_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_1/next_UI_page" to="." method="_on_next_ui_page_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_4/next_UI_page" to="." method="_on_next_ui_page_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_5/next_UI_page" to="." method="_on_next_ui_page_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_2/next_UI_page" to="." method="_on_next_ui_page_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_3/next_UI_page" to="." method="_on_next_ui_page_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_6/next_UI_page" to="." method="_on_next_ui_page_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_7/next_UI_page" to="." method="_on_next_ui_page_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_ui/demand_frame/ui_page_8/next_UI_page" to="." method="_on_next_ui_page_pressed"]

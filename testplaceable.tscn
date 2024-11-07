@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://m5vwtidb6k1y"]
+
+[ext_resource type="Texture2D" uid="uid://caj7nwu0dgcv7" path="res://pixil-frame-0 - 2024-01-16T110111.777.png" id="1_eam1h"]
+[ext_resource type="Script" path="res://MeshInstance2D.gd" id="2_y51l6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vaxpo"]
+
+[node name="testplaceable" type="MeshInstance2D"]
+position = Vector2(0.25, 0.25)
+scale = Vector2(1.5, 1.5)
+mesh = SubResource("BoxMesh_vaxpo")
+texture = ExtResource("1_eam1h")
+script = ExtResource("2_y51l6")

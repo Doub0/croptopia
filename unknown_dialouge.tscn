@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3sgfbyb83q3r"]
+
+[ext_resource type="Script" path="res://unknown_dialouge.gd" id="1_0qpfn"]
+[ext_resource type="Texture2D" uid="uid://d23w1lfsudnq6" path="res://dialouge/pixil-frame-0_-_2023-12-15T115257.929.png" id="2_g6vxu"]
+[ext_resource type="FontFile" uid="uid://durc11sjou4jb" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="3_48bac"]
+[ext_resource type="Texture2D" uid="uid://de0mt8cjomc14" path="res://pixil-frame-0 - 2024-02-09T134931.751.png" id="4_640ry"]
+
+[node name="unknown_dialouge" type="CanvasLayer"]
+offset = Vector2(118.225, 121.95)
+scale = Vector2(0.795, 0.795)
+transform = Transform2D(0.795, 0, 0, 0.795, 118.225, 121.95)
+script = ExtResource("1_0qpfn")
+
+[node name="dialouge_box" type="Sprite2D" parent="."]
+self_modulate = Color(0.258824, 0.14902, 0, 1)
+position = Vector2(12.2956, -2.45284)
+texture = ExtResource("2_g6vxu")
+
+[node name="name" type="Label" parent="dialouge_box"]
+offset_left = -150.943
+offset_top = -30.1887
+offset_right = 0.0566254
+offset_bottom = -4.18867
+theme_override_fonts/font = ExtResource("3_48bac")
+text = "UNKNOWN:"
+
+[node name="text" type="Label" parent="dialouge_box"]
+offset_left = -140.881
+offset_top = -10.0629
+offset_right = 38.1195
+offset_bottom = 15.9371
+theme_override_fonts/font = ExtResource("3_48bac")
+text = "Meet us at Mt. Crag"
+
+[node name="Sprite2D" type="Sprite2D" parent="dialouge_box"]
+position = Vector2(918.704, 134.453)
+scale = Vector2(4.25, 4.25)
+texture = ExtResource("4_640ry")

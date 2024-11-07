@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuq430roi458b"]
+
+[ext_resource type="Texture2D" uid="uid://bunxeeqonxyfo" path="res://scenes/pixil-frame-1 (2).png" id="1_1mmon"]
+[ext_resource type="Script" path="res://maple.gd" id="1_xhvmq"]
+[ext_resource type="Texture2D" uid="uid://c25cosupka4mi" path="res://scenes/pixil-frame-0 - 2024-01-22T142318.637.png" id="2_yoh0u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8uc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1mmon")
+}],
+"loop": true,
+"name": &"maple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yoh0u")
+}],
+"loop": true,
+"name": &"no_maple",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rr6t5"]
+radius = 32.9848
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kdxq"]
+
+[node name="maple_tree" type="Node2D"]
+script = ExtResource("1_xhvmq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p8uc2")
+animation = &"maple"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_rr6t5")
+
+[node name="growth_timer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_5kdxq")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout"]

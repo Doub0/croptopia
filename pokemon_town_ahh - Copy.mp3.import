@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyg7577eraorp"
+path="res://.godot/imported/pokemon_town_ahh - Copy.mp3-b6be1dc1f55855b88e623854bf3ca1b2.mp3str"
+
+[deps]
+
+source_file="res://pokemon_town_ahh - Copy.mp3"
+dest_files=["res://.godot/imported/pokemon_town_ahh - Copy.mp3-b6be1dc1f55855b88e623854bf3ca1b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

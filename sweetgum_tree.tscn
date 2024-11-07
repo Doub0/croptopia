@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpc1f5jq4t377"]
+
+[ext_resource type="Script" path="res://sweetgum_tree.gd" id="1_cdwrp"]
+[ext_resource type="Texture2D" uid="uid://iy75j3cutcky" path="res://inventory/pixilart-drawing (5).png" id="2_81ud3"]
+[ext_resource type="Resource" uid="uid://dgspaqc2hqlvh" path="res://inventory/sweetgum.tres" id="2_q5txe"]
+[ext_resource type="Texture2D" uid="uid://eing7jj3nyl8" path="res://inventory/pixil-frame-0 - 2024-01-11T113448.588.png" id="3_3kygq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ga8ha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_81ud3")
+}],
+"loop": true,
+"name": &"no sweetgum",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3kygq")
+}],
+"loop": true,
+"name": &"sweetgum",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6ltg"]
+radius = 43.0465
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ht85t"]
+radius = 5.0
+
+[node name="sweetgum_tree" type="Node2D"]
+script = ExtResource("1_cdwrp")
+item = ExtResource("2_q5txe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ga8ha")
+animation = &"sweetgum"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+position = Vector2(2, 26)
+shape = SubResource("CircleShape2D_y6ltg")
+
+[node name="growth_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(2, 60)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(2, 68)
+shape = SubResource("CircleShape2D_ht85t")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout"]

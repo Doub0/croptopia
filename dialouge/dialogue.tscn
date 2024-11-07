@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ietvxfi8i3oq"]
+
+[ext_resource type="Texture2D" uid="uid://d23w1lfsudnq6" path="res://dialouge/pixil-frame-0_-_2023-12-15T115257.929.png" id="1_nryxc"]
+[ext_resource type="Script" path="res://dialouge/dialogue.gd" id="1_wrxac"]
+[ext_resource type="FontFile" uid="uid://durc11sjou4jb" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="3_d436l"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_wrxac")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = -5.0
+offset_top = 366.0
+offset_right = 1145.0
+offset_bottom = 642.0
+texture = ExtResource("1_nryxc")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 242.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("3_d436l")
+theme_override_font_sizes/normal_font_size = 75
+text = "Name"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 129.0
+offset_right = 1105.0
+offset_bottom = 329.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_d436l")
+theme_override_font_sizes/normal_font_size = 45
+text = "Chatting..."

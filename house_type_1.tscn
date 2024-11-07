@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://casbyfsfy2c1o"]
+
+[ext_resource type="Texture2D" uid="uid://dvx50jpc2wxhs" path="res://scenes/pixil-frame-0 - 2024-02-03T182612.576.png" id="1_kexv5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2i1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kexv5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="house_type_1" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t2i1q")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfxlokoxs46tb"
+path="res://.godot/imported/x2mate.com - ghetto smosh ahh sound effect (128 kbps).mp3-1b40b24bd26ebda5c7c35348ae3282b3.mp3str"
+
+[deps]
+
+source_file="res://scenes/x2mate.com - ghetto smosh ahh sound effect (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - ghetto smosh ahh sound effect (128 kbps).mp3-1b40b24bd26ebda5c7c35348ae3282b3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

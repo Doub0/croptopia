@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://v3ef5lksonyp"]
+
+[ext_resource type="Texture2D" uid="uid://bcuqdgfh7dgae" path="res://scenes/pixil-frame-0 - 2023-12-11T105420.784.png" id="1_fqvy1"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_gefxo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3x633"]
+radius = 130.0
+height = 278.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_gefxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fqvy1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3x633")

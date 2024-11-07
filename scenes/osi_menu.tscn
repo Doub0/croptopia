@@ -1,0 +1,223 @@
+[gd_scene load_steps=16 format=3 uid="uid://oipc1jdm4o6n"]
+
+[ext_resource type="Texture2D" uid="uid://cmm153ud4rfo6" path="res://assets/michael_full_walk_cycle.png" id="1_e5spv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aja5"]
+bg_color = Color(0.6, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.8, 0, 0.8, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pf7ac"]
+outline_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4v4c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.8, 0, 0.8, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_idqqa"]
+outline_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dq5dn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.8, 0, 0.8, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5at8o"]
+outline_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uorwk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.8, 0, 0.8, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vg0e0"]
+outline_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfevp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.8, 0, 0.8, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3oiur"]
+outline_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0q6k"]
+bg_color = Color(0.968627, 0, 0.960784, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31law"]
+atlas = ExtResource("1_e5spv")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rclh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31law")
+}],
+"loop": true,
+"name": &"michael",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jypfv"]
+bg_color = Color(0, 0.92549, 0.207843, 1)
+
+[node name="OSI_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_right = 368.0
+offset_bottom = 188.0
+
+[node name="tab_container" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_right = 345.0
+offset_bottom = 40.0
+columns = 5
+
+[node name="stat_button" type="Panel" parent="tab_container"]
+custom_minimum_size = Vector2(48, 22)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7aja5")
+
+[node name="button_text" type="Label" parent="tab_container/stat_button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "STATS"
+label_settings = SubResource("LabelSettings_pf7ac")
+
+[node name="inv_button" type="Panel" parent="tab_container"]
+custom_minimum_size = Vector2(28, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a4v4c")
+
+[node name="button_text" type="Label" parent="tab_container/inv_button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "INV"
+label_settings = SubResource("LabelSettings_idqqa")
+
+[node name="data_button" type="Panel" parent="tab_container"]
+custom_minimum_size = Vector2(42, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dq5dn")
+
+[node name="button_text" type="Label" parent="tab_container/data_button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "DATA"
+label_settings = SubResource("LabelSettings_5at8o")
+
+[node name="map_button" type="Panel" parent="tab_container"]
+custom_minimum_size = Vector2(35, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uorwk")
+
+[node name="button_text" type="Label" parent="tab_container/map_button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "MAP"
+label_settings = SubResource("LabelSettings_vg0e0")
+
+[node name="radio_button" type="Panel" parent="tab_container"]
+custom_minimum_size = Vector2(50, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jfevp")
+
+[node name="button_text" type="Label" parent="tab_container/radio_button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "RADIO"
+label_settings = SubResource("LabelSettings_3oiur")
+
+[node name="line" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 22.0
+offset_right = 368.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0q6k")
+
+[node name="sub_button_container" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 26.0
+offset_right = 307.0
+offset_bottom = 66.0
+columns = 3
+
+[node name="Label" type="Label" parent="sub_button_container"]
+layout_mode = 2
+text = "STATUS"
+
+[node name="Label2" type="Label" parent="sub_button_container"]
+layout_mode = 2
+text = "SPECIAL"
+
+[node name="Label3" type="Label" parent="sub_button_container"]
+layout_mode = 2
+text = "PERKS"
+
+[node name="michael_image" type="AnimatedSprite2D" parent="."]
+position = Vector2(247, 105)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1rclh")
+animation = &"michael"
+
+[node name="Panel" type="Panel" parent="michael_image"]
+offset_left = 7.99999
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = -7.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jypfv")
+
+[node name="Panel2" type="Panel" parent="michael_image"]
+offset_left = -3.33334
+offset_top = -17.6667
+offset_right = 4.66666
+offset_bottom = -16.6667
+theme_override_styles/panel = SubResource("StyleBoxFlat_jypfv")
+
+[node name="Panel3" type="Panel" parent="michael_image"]
+offset_left = 7.99999
+offset_top = 5.33334
+offset_right = 16.0
+offset_bottom = 6.33334
+theme_override_styles/panel = SubResource("StyleBoxFlat_jypfv")
+
+[node name="Panel4" type="Panel" parent="michael_image"]
+offset_left = -3.33334
+offset_top = 17.3333
+offset_right = 4.66666
+offset_bottom = 18.3333
+theme_override_styles/panel = SubResource("StyleBoxFlat_jypfv")
+
+[node name="Panel5" type="Panel" parent="michael_image"]
+offset_left = -18.3333
+offset_top = -8.0
+offset_right = -10.3333
+offset_bottom = -7.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jypfv")
+
+[node name="Panel6" type="Panel" parent="michael_image"]
+offset_left = -18.3333
+offset_top = 5.33334
+offset_right = -10.3333
+offset_bottom = 6.33334
+theme_override_styles/panel = SubResource("StyleBoxFlat_jypfv")

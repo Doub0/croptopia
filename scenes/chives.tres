@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cetlxhph0f48t"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_p5rtk"]
+[ext_resource type="Texture2D" uid="uid://cumflx80afn3t" path="res://pixil-frame-0 - 2024-02-27T191809.446.png" id="2_a8bu1"]
+
+[resource]
+resource_name = "chive"
+script = ExtResource("1_p5rtk")
+name = "Chives"
+texture = ExtResource("2_a8bu1")

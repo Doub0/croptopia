@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://yx3wlr2s2kr4"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_5uvps"]
+[ext_resource type="Texture2D" uid="uid://gbpb7rxleif2" path="res://inventory/pixil-frame-0 - 2024-02-27T190820.201.png" id="2_nosu4"]
+
+[resource]
+resource_name = "pinecone"
+script = ExtResource("1_5uvps")
+name = "pinecone"
+texture = ExtResource("2_nosu4")

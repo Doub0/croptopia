@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://rlffyrcgmfgo"]
+
+[ext_resource type="Script" path="res://log_seat.gd" id="1_l6w36"]
+[ext_resource type="Texture2D" uid="uid://c67fkquasctp5" path="res://pixil-frame-0 - 2024-02-18T183108.500.png" id="2_1xsox"]
+[ext_resource type="Texture2D" uid="uid://eq0x2k14suwy" path="res://pixil-frame-0 - 2024-02-18T183534.634.png" id="3_8t1d2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7jed"]
+radius = 24.0
+
+[node name="log_seat" type="CharacterBody2D"]
+script = ExtResource("1_l6w36")
+
+[node name="log" type="Sprite2D" parent="."]
+texture = ExtResource("2_1xsox")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_a7jed")
+
+[node name="michael" type="Sprite2D" parent="."]
+position = Vector2(-2, -10)
+texture = ExtResource("3_8t1d2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -7)
+zoom = Vector2(10.36, 10.36)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

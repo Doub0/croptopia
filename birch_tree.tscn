@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcu022vdn2k5d"]
+
+[ext_resource type="Script" path="res://birch_tree.gd" id="1_scqvy"]
+[ext_resource type="Resource" uid="uid://g66ie6kjg1db" path="res://catkin.tres" id="2_thj5k"]
+[ext_resource type="Texture2D" uid="uid://btec5awtajqlc" path="res://pixil-frame-0 - 2024-01-21T203346.020.png" id="3_hjls0"]
+[ext_resource type="Texture2D" uid="uid://b30eyun7bq3qe" path="res://pixil-frame-0 - 2024-01-21T202615.636.png" id="4_cx5go"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hp274"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hjls0")
+}],
+"loop": true,
+"name": &"birch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cx5go")
+}],
+"loop": true,
+"name": &"no_birch",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjb7o"]
+radius = 50.4876
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h26jr"]
+
+[node name="birch_tree" type="Node2D"]
+script = ExtResource("1_scqvy")
+item = ExtResource("2_thj5k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hp274")
+animation = &"birch"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+position = Vector2(-4, 17)
+shape = SubResource("CircleShape2D_gjb7o")
+
+[node name="growth_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-4, 25)
+shape = SubResource("CircleShape2D_h26jr")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered" flags=18]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited" flags=18]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout" flags=18]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3rp1yhjancp4"
+path="res://.godot/imported/pokemon_town_ahh - Copy.wav-7474cb439efbb36a5633669aa3872599.sample"
+
+[deps]
+
+source_file="res://pokemon_town_ahh - Copy.wav"
+dest_files=["res://.godot/imported/pokemon_town_ahh - Copy.wav-7474cb439efbb36a5633669aa3872599.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

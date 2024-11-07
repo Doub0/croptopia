@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://g66ie6kjg1db"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_2535a"]
+[ext_resource type="Texture2D" uid="uid://brlu6vwief2ky" path="res://pixil-frame-0 - 2024-01-21T203250.716.png" id="2_n7sxi"]
+
+[resource]
+script = ExtResource("1_2535a")
+name = "Catkin"
+texture = ExtResource("2_n7sxi")

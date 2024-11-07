@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://cubu0yvxjkdfv"]
+
+[ext_resource type="Script" path="res://cranberry_collectable.gd" id="1_w5kcu"]
+[ext_resource type="Texture2D" uid="uid://haiql5cvufhs" path="res://pixil-frame-0 - 2024-05-21T083416.186.png" id="2_lw6vx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtrne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lw6vx")
+}],
+"loop": true,
+"name": &"cranberry",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_dq4xw"]
+resource_name = "fade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.820305]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ebmfd"]
+resource_name = "fallingfrombush"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.820305]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pc00r"]
+_data = {
+"fade": SubResource("Animation_dq4xw"),
+"fallingfrombush": SubResource("Animation_ebmfd")
+}
+
+[node name="wheat_collectable" type="StaticBody2D"]
+script = ExtResource("1_w5kcu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 21)
+rotation = 0.820305
+sprite_frames = SubResource("SpriteFrames_vtrne")
+animation = &"cranberry"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pc00r")
+}

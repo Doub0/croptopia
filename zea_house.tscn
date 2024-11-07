@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bun875rmw0h7x"]
+
+[ext_resource type="Script" path="res://zea_house.gd" id="1_m0hqg"]
+[ext_resource type="Texture2D" uid="uid://dywhce60mwbrr" path="res://scenes/pixil-frame-0 - 2024-02-13T091520.819.png" id="2_2w11g"]
+[ext_resource type="Texture2D" uid="uid://gs832pkqaw6" path="res://scenes/pixil-frame-0 - 2024-02-13T092012.732.png" id="3_p2w7k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbv3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2w11g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="zea_house" type="Node2D"]
+script = ExtResource("1_m0hqg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-45, -25)
+sprite_frames = SubResource("SpriteFrames_bbv3y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-5.00001, -2)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("3_p2w7k")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlwphaa3rlsci"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sljfv"]
+
+[node name="stick" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sljfv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]

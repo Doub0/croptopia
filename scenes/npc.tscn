@@ -1,0 +1,148 @@
+[gd_scene load_steps=21 format=3 uid="uid://bxfpoteahjrme"]
+
+[ext_resource type="Texture2D" uid="uid://xsdgcos8xunf" path="res://pixilart-frames/pixil-frame-0 - 2023-12-18T113615.531.png" id="1_55yj6"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="1_q57v6"]
+[ext_resource type="Texture2D" uid="uid://ckjv1xc0t73qy" path="res://pixilart-frames/pixil-frame-0 - 2024-01-04T191300.500.png" id="2_mwr6m"]
+[ext_resource type="Texture2D" uid="uid://ced6qas58gope" path="res://pixilart-frames/pixil-frame-0 - 2024-01-04T190356.456.png" id="3_htvot"]
+[ext_resource type="Texture2D" uid="uid://cukjdgiqgf1be" path="res://pixilart-frames/pixil-frame-0 - 2024-01-04T190428.254.png" id="4_opo8o"]
+[ext_resource type="Texture2D" uid="uid://cp6xm2wgotog7" path="res://pixilart-frames/pixil-frame-0 - 2024-01-04T190458.715.png" id="5_vnlew"]
+[ext_resource type="Texture2D" uid="uid://bbmxqdypsyaub" path="res://pixilart-frames/pixil-frame-0 - 2024-01-04T192925.975.png" id="6_usm0e"]
+[ext_resource type="Texture2D" uid="uid://bcjedsfq6wpgr" path="res://pixil-frame-0 - 2024-01-04T193457.115.png" id="7_gco51"]
+[ext_resource type="Texture2D" uid="uid://byd3vt1rwgorx" path="res://pixilart-frames/pixil-frame-0 - 2024-01-04T193036.389.png" id="7_ub8pf"]
+[ext_resource type="Texture2D" uid="uid://p300c08bulp5" path="res://pixil-frame-0 - 2024-01-04T194016.588.png" id="8_10b4j"]
+[ext_resource type="Texture2D" uid="uid://dye3ygjtimaxg" path="res://pixil-frame-0 - 2024-01-04T193843.550.png" id="9_lb3ce"]
+[ext_resource type="Texture2D" uid="uid://dsquukle7jd0l" path="res://pixil-frame-0 - 2024-01-04T203836.715.png" id="9_ytorl"]
+[ext_resource type="Texture2D" uid="uid://dsqyf4sgfj1ub" path="res://pixil-frame-0 - 2024-01-04T203914.371.png" id="10_yudo4"]
+[ext_resource type="Texture2D" uid="uid://6h8vrpf0at6r" path="res://pixil-frame-0 - 2024-01-04T203856.175.png" id="11_mtphi"]
+[ext_resource type="PackedScene" uid="uid://ietvxfi8i3oq" path="res://dialouge/dialogue.tscn" id="12_1ba2f"]
+[ext_resource type="Texture2D" uid="uid://dvwuvbymovs2" path="res://pixilart-frames/pixil-frame-0 - 2024-02-08T084127.840.png" id="12_55ndj"]
+[ext_resource type="PackedScene" uid="uid://cxxr1pjfbbmjt" path="res://npc_quest.tscn" id="13_5k58a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xk7m4"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("1_55yj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mwr6m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_htvot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_opo8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vnlew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_htvot")
+}],
+"loop": true,
+"name": &"walk_e",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gco51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_10b4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lb3ce")
+}],
+"loop": true,
+"name": &"walk_n",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("2_mwr6m")
+}, {
+"duration": 0.8,
+"texture": ExtResource("6_usm0e")
+}, {
+"duration": 0.8,
+"texture": ExtResource("7_ub8pf")
+}],
+"loop": true,
+"name": &"walk_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ytorl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yudo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mtphi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ytorl")
+}],
+"loop": true,
+"name": &"walk_w",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu2i1"]
+radius = 55.5455
+height = 286.909
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4so5j"]
+radius = 619.912
+
+[node name="npc" type="CharacterBody2D"]
+z_index = -1
+scale = Vector2(0.055, 0.055)
+script = ExtResource("1_q57v6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xk7m4")
+animation = &"walk_n"
+frame_progress = 0.855261
+
+[node name="Pixil-frame-0-2024-02-08t084127_840" type="Sprite2D" parent="AnimatedSprite2D"]
+modulate = Color(0, 0, 0, 0.521569)
+show_behind_parent = true
+position = Vector2(195.624, 238.185)
+scale = Vector2(11.704, 6.884)
+texture = ExtResource("12_55ndj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-18.1818, 0)
+shape = SubResource("CapsuleShape2D_hu2i1")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+visible = false
+position = Vector2(-7, -1)
+shape = SubResource("CircleShape2D_4so5j")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Dialogue" parent="." instance=ExtResource("12_1ba2f")]
+visible = false
+
+[node name="npc_quest" parent="." instance=ExtResource("13_5k58a")]
+layer = 2
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
+[connection signal="quest_finished" from="npc_quest" to="." method="_on_npc_quest_quest_finished"]
+[connection signal="quest_menu_closed" from="npc_quest" to="." method="_on_npc_quest_quest_menu_closed"]

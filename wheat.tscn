@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjmg1gry383cr"]
+
+[ext_resource type="Script" path="res://wheat.gd" id="1_adq17"]
+[ext_resource type="Texture2D" uid="uid://bkijw8yagrcjy" path="res://assets/pixil-frame-0 - 2024-05-21T081128.784.png" id="2_ga0ym"]
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="2_hvk6a"]
+[ext_resource type="Texture2D" uid="uid://b2rtdvlcweav4" path="res://assets/pixil-frame-0 - 2024-05-17T194744.217.png" id="3_7q67t"]
+[ext_resource type="Texture2D" uid="uid://bq2nyaw22eekr" path="res://pixil-frame-0 - 2024-05-21T084516.581.png" id="3_v17ww"]
+
+[sub_resource type="Resource" id="Resource_83jef"]
+script = ExtResource("2_hvk6a")
+name = "Wheat"
+texture = ExtResource("3_v17ww")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hmoui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ga0ym")
+}],
+"loop": true,
+"name": &"no_wheat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7q67t")
+}],
+"loop": true,
+"name": &"wheat",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjb7o"]
+radius = 50.4876
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h26jr"]
+
+[node name="wheat" type="Node2D"]
+script = ExtResource("1_adq17")
+item = SubResource("Resource_83jef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hmoui")
+animation = &"wheat"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+visible = false
+position = Vector2(-4, 17)
+shape = SubResource("CircleShape2D_gjb7o")
+
+[node name="growth_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-4, 25)
+shape = SubResource("CircleShape2D_h26jr")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered" flags=18]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited" flags=18]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout" flags=18]

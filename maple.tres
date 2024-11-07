@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bhcax18mn1bo2"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_hft8b"]
+[ext_resource type="Texture2D" uid="uid://bn8rbq0qdt5ac" path="res://scenes/pixil-frame-0 - 2024-01-22T143803.306.png" id="2_c7sqc"]
+
+[resource]
+script = ExtResource("1_hft8b")
+name = "Maple Samara"
+texture = ExtResource("2_c7sqc")

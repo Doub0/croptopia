@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjh42fcgoin8r"]
+
+[ext_resource type="Script" path="res://inventory/inv_ui_slot.gd" id="1_pgnad"]
+[ext_resource type="Texture2D" uid="uid://c5v061ty8vtef" path="res://inventory/pixil-frame-0 - 2024-01-08T110435.971.png" id="1_pnvt0"]
+
+[node name="inv_UI_slot" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 22.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_pgnad")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pnvt0")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+position = Vector2(-12, -14)
+scale = Vector2(0.88, 0.88)
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -12.0
+offset_right = 24.0
+offset_bottom = 14.0
+scale = Vector2(0.375, 0.375)
+text = "99"

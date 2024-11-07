@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxxr1pjfbbmjt"]
+
+[ext_resource type="Script" path="res://npc_quest.gd" id="1_at7su"]
+[ext_resource type="Texture2D" uid="uid://d23w1lfsudnq6" path="res://dialouge/pixil-frame-0_-_2023-12-15T115257.929.png" id="2_yw4h8"]
+[ext_resource type="FontFile" uid="uid://durc11sjou4jb" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="3_0dk6v"]
+
+[node name="npc_quest" type="CanvasLayer"]
+script = ExtResource("1_at7su")
+
+[node name="quest1_ui" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = 366.0
+offset_right = 1145.0
+offset_bottom = 642.0
+texture = ExtResource("2_yw4h8")
+
+[node name="Name" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 242.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("3_0dk6v")
+theme_override_font_sizes/normal_font_size = 75
+text = "Zea"
+
+[node name="Text" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 129.0
+offset_right = 1105.0
+offset_bottom = 329.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0dk6v")
+theme_override_font_sizes/normal_font_size = 45
+text = "Can you help me?"
+
+[node name="yesButton1" type="Button" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 961.0
+offset_top = 61.0
+offset_right = 1096.0
+offset_bottom = 130.0
+text = "Yes"
+
+[node name="noButton1" type="Button" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 959.0
+offset_top = 171.0
+offset_right = 1117.0
+offset_bottom = 232.0
+text = "No"
+
+[node name="finished_quest" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = 366.0
+offset_right = 1145.0
+offset_bottom = 642.0
+texture = ExtResource("2_yw4h8")
+
+[node name="Name" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 242.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("3_0dk6v")
+theme_override_font_sizes/normal_font_size = 75
+text = "Zea"
+
+[node name="Text" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 129.0
+offset_right = 1105.0
+offset_bottom = 329.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0dk6v")
+theme_override_font_sizes/normal_font_size = 45
+text = "Thank you for finishing the quest, I'll take you to town"
+
+[node name="no_quest" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = 366.0
+offset_right = 1145.0
+offset_bottom = 642.0
+texture = ExtResource("2_yw4h8")
+
+[node name="Name" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 242.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("3_0dk6v")
+theme_override_font_sizes/normal_font_size = 75
+text = "Zea"
+
+[node name="Text" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 129.0
+offset_right = 1105.0
+offset_bottom = 329.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0dk6v")
+theme_override_font_sizes/normal_font_size = 45
+text = "You did my quest!"
+
+[connection signal="pressed" from="quest1_ui/yesButton1" to="." method="_on_yes_button_1_pressed"]
+[connection signal="pressed" from="quest1_ui/noButton1" to="." method="_on_no_button_1_pressed"]

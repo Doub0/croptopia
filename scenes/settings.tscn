@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bclwn33w21aco"]
+
+[ext_resource type="Texture2D" uid="uid://ckjy5a4pimiek" path="res://buttons/pixil-frame-0 - 2024-01-11T213900.123.png" id="1_1fsrd"]
+[ext_resource type="Script" path="res://scenes/settings.gd" id="1_5dj7j"]
+
+[node name="settings" type="Node2D"]
+script = ExtResource("1_5dj7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(645, 322.5)
+scale = Vector2(6.43, 6.43)
+texture = ExtResource("1_1fsrd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 29.9999
+offset_top = 27.0
+offset_right = 71.9999
+offset_bottom = 53.0
+scale = Vector2(3.56, 3.2)
+text = "	"
+
+[node name="BACK" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 19.0
+offset_bottom = 16.0
+scale = Vector2(4.26349, 2.12)
+text = "BACK"
+
+[connection signal="pressed" from="BACK" to="." method="_on_back_pressed"]
